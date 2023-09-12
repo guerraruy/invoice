@@ -1,0 +1,23 @@
+.confirmationModal {
+  width: 400px;
+  .title {
+    text-transform: uppercase;
+    margin: 10px 0;
+  }
+  .body {
+    padding: 40px 0;
+  }
+  .buttonsContainer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    button {
+      flex: 1;
+    }
+  }
+  hr {
+    border: 1px solid rgb(240, 240, 240);
+  }
+}

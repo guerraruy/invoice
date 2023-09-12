@@ -1,0 +1,12 @@
+.invoices {
+  position: relative;
+
+  .addButton {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}

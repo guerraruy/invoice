@@ -1,0 +1,19 @@
+.react-responsive-modal-root {
+  // .react-responsive-modal-modal {
+  //   background-color: var(--gray-0);
+  // }
+  .react-responsive-modal-modal {
+    border-radius: 5px;
+  }
+  .react-responsive-modal-closeButton {
+    font-size: 24px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border: 1px solid transparent;
+    &:hover {
+      border-color: lightgray;
+      background-color: rgb(250, 250, 250);
+    }
+  }
+}

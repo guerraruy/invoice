@@ -1,0 +1,40 @@
+.clientForm {
+  // border: 5px solid red;
+  // height: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  // justify-content: center;
+  // align-items: center;
+  margin: 0 auto;
+  .control {
+    display: flex;
+    flex-direction: column;
+    input {
+      padding: 10px;
+      border-radius: 5px;
+      border-color: lightgray;
+      border-style: solid;
+      font-size: 18px;
+    }
+    label {
+      margin-bottom: 5px;
+    }
+    margin-bottom: 20px;
+  }
+  .buttonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    button {
+      padding: 10px;
+      width: fit-content;
+      align-self: flex-end;
+      flex: 1;
+      cursor: pointer;
+    }
+  }
+}

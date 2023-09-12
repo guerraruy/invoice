@@ -1,0 +1,21 @@
+.clients {
+  position: relative;
+
+  .clientsListContainer {
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .addButton {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}

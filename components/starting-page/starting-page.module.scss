@@ -1,0 +1,11 @@
+@import '../../styles/variables.module.scss';
+
+.starting {
+  margin: 3rem auto;
+  text-align: center;
+  color: $primary-color;
+}
+
+.starting h1 {
+  font-size: 5rem;
+}

@@ -1,0 +1,15 @@
+@import '../../../styles/media-queries.module.scss';
+// @import 'scss/_variables';
+
+.menuButton {
+  z-index: 100;
+  @include respond-above(md) {
+    display: none;
+  }
+  margin-left: auto;
+  font-size: 30px;
+  padding: 10px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  line-height: 0;
+}
