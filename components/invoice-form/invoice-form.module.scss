@@ -1,11 +1,27 @@
+@import '../../styles//media-queries.module.scss';
+
 .invoiceForm {
   form {
     .topContainer {
-      border: 1px solid green;
+      // border: 1px solid green;
       display: flex;
       align-items: flex-end;
       .spacer {
         flex: 1;
+      }
+    }
+    .buttonsContainer {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      button {
+        flex: 1;
+      }
+      @include respond-above(md) {
+        max-width: 500px;
+        margin-left: auto;
       }
     }
   }

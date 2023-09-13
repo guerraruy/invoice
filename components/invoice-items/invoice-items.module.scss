@@ -1,4 +1,4 @@
-@import '../../styles//media-queries.module.scss';
+// @import '../../styles//media-queries.module.scss';
 
 .invoiceItems {
   padding: 20px 0;
@@ -18,20 +18,20 @@
     flex-direction: column;
     gap: 10px;
   }
-  .buttonsContainer {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    button {
-      flex: 1;
-    }
-    @include respond-above(md) {
-      max-width: 500px;
-      margin-left: auto;
-    }
-  }
+  // .buttonsContainer {
+  //   margin-top: 20px;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   gap: 20px;
+  //   button {
+  //     flex: 1;
+  //   }
+  //   @include respond-above(md) {
+  //     max-width: 500px;
+  //     margin-left: auto;
+  //   }
+  // }
   .note {
     padding: 40px 0;
     text-align: center;

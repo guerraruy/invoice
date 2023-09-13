@@ -1,12 +1,14 @@
 import { FaPlus } from 'react-icons/fa6'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { useDispatch, useSelector } from 'react-redux'
+
 import Button from '../ui/button'
-import styles from './invoice-items.module.scss'
 import InvoiceItem from '../invoice-item'
 import AddInvoiceItemModal from '../add-invoice-item-modal'
-import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import { addInvoiceItem } from '../../redux/invoiceItemsSlice'
-import { useRouter } from 'next/router'
+
+import styles from './invoice-items.module.scss'
 
 const InvoiceItems = () => {
   const [open, setOpen] = useState(false)
@@ -33,14 +35,6 @@ const InvoiceItems = () => {
     setOpen(false)
   }
 
-  const handleCancel = () => {
-    router.push('/invoices')
-  }
-
-  const handleSave = () => {
-    router.push('/invoices')
-  }
-
   const displayItems = (items) => {
     if (items?.length > 0) {
       return items.map((item) => {
@@ -65,12 +59,12 @@ const InvoiceItems = () => {
           </Button>
         </div>
         <div className={styles.listContainer}>{displayItems(items)}</div>
-        <div className={styles.buttonsContainer}>
+        {/* <div className={styles.buttonsContainer}>
           <Button type='button' onClick={handleCancel} outlined>
             Cancel
           </Button>
           <Button onClick={handleSave}>Create Invoice</Button>
-        </div>
+        </div> */}
       </div>
       <AddInvoiceItemModal
         open={open}

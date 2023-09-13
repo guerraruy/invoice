@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const baseService = createApi({
   reducerPath: 'api',
-  tagTypes: ['User', 'Clients'],
+  tagTypes: ['User', 'Clients', 'Invoices'],
   baseQuery: fetchBaseQuery({
     baseUrl: '/api/',
     // fetchFn: async (...args) => {
