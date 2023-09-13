@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router'
-import ClientForm from '../../../components/client/client-form'
+import ClientForm from '../../../components/client-form'
 import PageHeader from '../../../components/ui/page-header'
 
 const EditClientPage = () => {

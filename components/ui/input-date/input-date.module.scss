@@ -1,0 +1,9 @@
+.inputDate {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  input {
+    font-size: 16px;
+    padding: 8px;
+  }
+}

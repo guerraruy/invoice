@@ -1,12 +1,12 @@
-import InvoiceForm from '../../components/invoice/invoice-form'
+import InvoiceForm from '../../../components/invoice-form'
 import PageHeader from '../../components/ui/page-header'
 
 const EditInvoicePage = () => {
   return (
-    <div>
+    <section>
       <PageHeader>Edit Invoice</PageHeader>
       <InvoiceForm />
-    </div>
+    </section>
   )
 }
 

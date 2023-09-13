@@ -1,0 +1,12 @@
+.invoiceForm {
+  form {
+    .topContainer {
+      border: 1px solid green;
+      display: flex;
+      align-items: flex-end;
+      .spacer {
+        flex: 1;
+      }
+    }
+  }
+}

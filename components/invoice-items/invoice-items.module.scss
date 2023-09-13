@@ -1,0 +1,39 @@
+@import '../../styles//media-queries.module.scss';
+
+.invoiceItems {
+  padding: 20px 0;
+  // border: 2px solid red;
+  .itemsTitleContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    .itemsTitle {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+  .listContainer {
+    // border: 1px solid magenta;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .buttonsContainer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    button {
+      flex: 1;
+    }
+    @include respond-above(md) {
+      max-width: 500px;
+      margin-left: auto;
+    }
+  }
+  .note {
+    padding: 40px 0;
+    text-align: center;
+  }
+}
