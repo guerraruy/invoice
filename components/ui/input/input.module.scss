@@ -1,0 +1,24 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  label {
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: 'Montserrat';
+  }
+  input {
+    font-family: 'Montserrat';
+    padding: 12px;
+    border-radius: 5px;
+    border: 2px solid var(--ctrl-border-color);
+    font-size: var(--ctrl-font-size);
+    font-weight: var(--ctrl-font-weigth);
+    margin-top: 6px;
+    outline: none;
+    &:focus-visible {
+      border-bottom: 2px solid var(--primary);
+    }
+  }
+}

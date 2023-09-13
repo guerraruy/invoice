@@ -1,4 +1,17 @@
 .button {
-  padding: 10px;
+  height: 50px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 18px;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 5px;
   text-transform: uppercase;
+  &:hover {
+    filter: brightness(110%);
+  }
+  &:disabled {
+    background-color: rgb(211, 211, 211);
+  }
 }
