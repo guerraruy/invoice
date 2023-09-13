@@ -8,6 +8,8 @@ import {
 import ClientRow from '../../components/client-row'
 import ConfirmationModal from '../../components/ui/confirmation-modal'
 import { useState } from 'react'
+import Button from '../../components/ui/button'
+import { FaPlus } from 'react-icons/fa'
 
 const Clients = () => {
   const router = useRouter()
@@ -39,9 +41,9 @@ const Clients = () => {
   return (
     <>
       <section className={styles.clients}>
-        <button className={styles.addButton} onClick={handleAddClient}>
-          ADD
-        </button>
+        <Button className={styles.addButton} onClick={handleAddClient} round>
+          <FaPlus />
+        </Button>
         <PageHeader>Clients</PageHeader>
         <div className={styles.clientsListContainer}>
           {data.map(({ name, _id }) => (

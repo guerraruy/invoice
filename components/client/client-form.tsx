@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
-import styles from './client-form.module.scss'
+import { useRouter } from 'next/router'
+
 import Button from '../ui/button'
 import {
   useAddClientMutation,
   useGetClientQuery,
   useUpdateClientMutation,
 } from '../../services/clients'
-import { useRouter } from 'next/router'
+
+import styles from './client-form.module.scss'
 
 interface Props {
   id?: string
@@ -42,11 +44,6 @@ const ClientForm = ({ id }: Props) => {
   }
 
   const buttonText = id ? 'Save' : 'Add Client'
-  // if (id) {
-  //   setName(data.name)
-  // }
-
-  // console.log('DATA', data)
 
   return (
     <form className={styles.clientForm} onSubmit={handleSubmit}>
@@ -61,7 +58,7 @@ const ClientForm = ({ id }: Props) => {
         />
       </div>
       <div className={styles.buttonsContainer}>
-        <Button type='button' onClick={handleCancel}>
+        <Button type='button' onClick={handleCancel} outlined>
           Cancel
         </Button>
         <Button>{buttonText}</Button>

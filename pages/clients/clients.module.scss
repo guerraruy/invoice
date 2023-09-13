@@ -1,9 +1,12 @@
 .clients {
   position: relative;
+  // border: 3px solid green;
+  max-width: 600px;
+  margin: 0 auto;
 
   .clientsListContainer {
     padding: 20px;
-    max-width: 500px;
+    // max-width: 500px;
     margin: 0 auto;
     gap: 10px;
     display: flex;

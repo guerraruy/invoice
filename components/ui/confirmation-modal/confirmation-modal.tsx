@@ -21,7 +21,7 @@ const ConfirmationModal = ({
   onClose,
   open,
   confirmCallback,
-}) => {
+}: Props) => {
   const handleConfirm = () => {
     if (confirmCallback) {
       confirmCallback()
@@ -37,7 +37,9 @@ const ConfirmationModal = ({
         <div className={styles.body}>{body}</div>
         <hr />
         <div className={styles.buttonsContainer}>
-          <Button onClick={onClose}>{noText}</Button>
+          <Button onClick={onClose} outlined>
+            {noText}
+          </Button>
           <Button onClick={handleConfirm}>{yesText}</Button>
         </div>
       </div>
