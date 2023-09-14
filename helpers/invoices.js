@@ -5,7 +5,6 @@ export const getStatusFromInvoice = (invoice) => {
     status = 'paid'
   } else {
     const today = new Date().setHours(0, 0, 0, 0)
-    console.log('today', today)
     if (dueDate.getTime() < today) {
       status = 'overdue'
     } else {

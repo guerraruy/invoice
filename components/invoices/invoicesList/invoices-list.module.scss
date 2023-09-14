@@ -46,7 +46,15 @@
     }
     .headerStatus {
       border: 1px solid lightgray;
-      width: 230px;
+      width: 200px;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+    }
+    .headerActions {
+      border: 1px solid lightgray;
+      width: 140px;
       padding: 10px;
       border-radius: 5px;
       display: flex;

@@ -2,18 +2,39 @@ import {
   getStatusFromInvoice,
   getTotalAmountFromInvoice,
 } from '../../../helpers/invoices'
+import InvoiceActions from '../invoice-actions/invoice-actions'
 
 import styles from './invoice-row.module.scss'
 
-const InvoiceRow = ({ invoice }) => {
+interface Client {
+  _id: string
+  name: string
+}
+
+interface InvoiceItems {
+  description: string
+  amount: number
+}
+interface Props {
+  invoice: {
+    _id: string
+    dueDate: string
+    client: Client[]
+    invoiceNumber: number
+    items: InvoiceItems[]
+  }
+  onEdit: () => void
+  onDelete: () => void
+  onExport: () => void
+}
+
+const InvoiceRow = ({ invoice, onEdit, onDelete, onExport }: Props) => {
   const dueDate = new Date(invoice.dueDate)
-  console.log('dueDate', dueDate.getTime())
   const due = dueDate.toLocaleDateString()
   const client = invoice.client[0].name
   const amount = getTotalAmountFromInvoice(invoice)
   const status = getStatusFromInvoice(invoice)
   const statusClass = styles[status]
-  console.log('statusClass', statusClass)
 
   return (
     <div className={`${styles.invoiceRow} ${statusClass}`}>
@@ -22,7 +43,13 @@ const InvoiceRow = ({ invoice }) => {
       <div className={styles.invoiceClient}>{client}</div>
       <div className={styles.invoiceAmount}>{amount}</div>
       <div className={styles.invoiceStatus}>{status}</div>
-      <div className={styles.actions}></div>
+      <div className={styles.invoiceActions}>
+        <InvoiceActions
+          onEdit={onEdit}
+          onDelete={onDelete}
+          onExport={onExport}
+        />
+      </div>
     </div>
   )
 }

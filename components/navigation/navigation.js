@@ -15,7 +15,6 @@ function Navigation({ show, toggle }) {
   return (
     <nav className={navClass} onClick={toggle}>
       {!isAuthenticate(status) && <Link href='/auth'>Login</Link>}
-      {isAuthenticate(status) && <Link href='/profile'>Profile</Link>}
       {isAuthenticate(status) && <Link href='/invoices'>Dashboard</Link>}
       {isAuthenticate(status) && <Link href='/clients'>Clients</Link>}
       {isAuthenticate(status) && (

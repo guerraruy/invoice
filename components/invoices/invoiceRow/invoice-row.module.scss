@@ -1,4 +1,5 @@
 .invoiceRow {
+  cursor: pointer;
   border: 1px solid lightgray;
   padding: 10px;
   border-radius: 5px;
@@ -6,32 +7,49 @@
   flex-direction: row;
   gap: 10px;
   .invoiceNo {
+    display: flex;
+    align-items: center;
     width: 140px;
     padding: 0 10px;
     // border: 1px solid gray;
   }
   .invoiceDueDate {
+    display: flex;
+    align-items: center;
     width: 140px;
     padding: 0 10px;
     text-align: center;
     // border: 1px solid gray;
   }
   .invoiceClient {
+    display: flex;
+    align-items: center;
     width: 350px;
     padding: 0 10px;
     // border: 1px solid gray;
   }
   .invoiceAmount {
+    display: flex;
+    align-items: center;
     width: 250px;
     padding: 0 10px;
     text-align: end;
     // border: 1px solid gray;
   }
   .invoiceStatus {
+    display: flex;
+    align-items: center;
     width: 200px;
     padding: 0 10px;
     text-align: center;
     // border: 1px solid gray;
+  }
+  .invoiceActions {
+    display: flex;
+    align-items: center;
+    width: 140px;
+    padding: 0 10px;
+    text-align: center;
   }
   &.paid {
     border-left: 6px solid rgb(0, 182, 0);
