@@ -13,9 +13,18 @@ const InvoicesList = () => {
 
   return (
     <div className={styles.invoicesList}>
-      {invoices.map((invoice) => {
-        return <InvoiceRow key={invoice._id} invoice={invoice} />
-      })}
+      <div className={styles.header}>
+        <div className={styles.headerInvoiceNo}>No.</div>
+        <div className={styles.headerDueDate}>Due</div>
+        <div className={styles.headerClient}>Client</div>
+        <div className={styles.headerAmount}>Amount</div>
+        <div className={styles.headerStatus}>Status</div>
+      </div>
+      <div className={styles.listContainer}>
+        {invoices.map((invoice) => {
+          return <InvoiceRow key={invoice._id} invoice={invoice} />
+        })}
+      </div>
     </div>
   )
 }

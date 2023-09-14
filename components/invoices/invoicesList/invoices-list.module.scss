@@ -1,5 +1,65 @@
 .invoicesList {
-  border: 1px solid gray;
+  border: 1px solid lightgray;
   padding: 20px;
   border-radius: 5px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  // border: 6px solid blue;
+  flex: 1;
+  height: 0;
+  .header {
+    display: flex;
+    gap: 10px;
+    padding-left: 10px;
+    .headerInvoiceNo {
+      border: 1px solid lightgray;
+      width: 140px;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+    }
+    .headerDueDate {
+      border: 1px solid lightgray;
+      width: 140px;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+    }
+    .headerClient {
+      border: 1px solid lightgray;
+      width: 350px;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+    }
+    .headerAmount {
+      border: 1px solid lightgray;
+      width: 250px;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+    }
+    .headerStatus {
+      border: 1px solid lightgray;
+      width: 230px;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .listContainer {
+    // border: 6px solid rgb(3, 233, 11);
+    overflow-y: auto;
+    flex: 1;
+    height: 0;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+  }
 }

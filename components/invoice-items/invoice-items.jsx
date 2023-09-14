@@ -29,8 +29,8 @@ const InvoiceItems = () => {
     const data = {
       id: self.crypto.randomUUID(),
       ...item,
+      amount: +item.amount,
     }
-    console.log('item saved', data)
     dispatch(addInvoiceItem(data))
     setOpen(false)
   }

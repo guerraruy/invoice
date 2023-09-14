@@ -1,5 +1,11 @@
 .invoices {
   position: relative;
+  margin: auto;
+  max-width: 1200px;
+  // border: 6px solid magenta;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 
   .addButton {
     position: absolute;

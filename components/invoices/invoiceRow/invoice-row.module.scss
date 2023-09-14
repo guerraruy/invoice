@@ -2,4 +2,47 @@
   border: 1px solid lightgray;
   padding: 10px;
   border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  .invoiceNo {
+    width: 140px;
+    padding: 0 10px;
+    // border: 1px solid gray;
+  }
+  .invoiceDueDate {
+    width: 140px;
+    padding: 0 10px;
+    text-align: center;
+    // border: 1px solid gray;
+  }
+  .invoiceClient {
+    width: 350px;
+    padding: 0 10px;
+    // border: 1px solid gray;
+  }
+  .invoiceAmount {
+    width: 250px;
+    padding: 0 10px;
+    text-align: end;
+    // border: 1px solid gray;
+  }
+  .invoiceStatus {
+    width: 200px;
+    padding: 0 10px;
+    text-align: center;
+    // border: 1px solid gray;
+  }
+  &.paid {
+    border-left: 6px solid rgb(0, 182, 0);
+    border-right: 6px solid rgb(0, 182, 0);
+  }
+  &.unpaid {
+    border-left: 6px solid rgb(255, 170, 0);
+    border-right: 6px solid rgb(255, 170, 0);
+  }
+  &.overdue {
+    border-left: 6px solid orangered;
+    border-right: 6px solid orangered;
+  }
 }

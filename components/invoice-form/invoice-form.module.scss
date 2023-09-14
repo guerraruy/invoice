@@ -1,6 +1,9 @@
 @import '../../styles//media-queries.module.scss';
 
 .invoiceForm {
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 20px;
   form {
     .topContainer {
       // border: 1px solid green;
@@ -8,6 +11,11 @@
       align-items: flex-end;
       .spacer {
         flex: 1;
+      }
+      .rightBlock {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
       }
     }
     .buttonsContainer {

@@ -10,12 +10,14 @@ import Button from '../ui/button'
 import styles from './invoice-form.module.scss'
 import { useRouter } from 'next/router'
 import { useAddInvoiceMutation } from '../../services/invoices'
+import Checkbox from '../ui/CheckBox'
 
 const InvoiceForm = () => {
   const { data, isLoading } = useGetClientsQuery() // populates client dropdown
   const [options, setOptions] = useState([])
   const [clientId, setClientId] = useState('')
   const [dueDate, setDueDate] = useState('')
+  const [paid, setPaid] = useState(false)
   const { items } = useSelector((state) => state.invoiceItems)
   const router = useRouter()
   const [addInvoice] = useAddInvoiceMutation()
@@ -31,7 +33,10 @@ const InvoiceForm = () => {
 
   const handleDueDateChange = (value) => {
     setDueDate(value)
-    console.log('DATE', value)
+  }
+
+  const handlePaidChange = () => {
+    setPaid((prev) => !prev)
   }
 
   const handleCancel = () => {
@@ -43,6 +48,7 @@ const InvoiceForm = () => {
     const invoice = {
       dueDate,
       clientId,
+      paid,
       items,
     }
     console.log('NEW INVOICE', invoice)
@@ -61,11 +67,14 @@ const InvoiceForm = () => {
             onChange={handleClientChange}
           />
           <div className={styles.spacer} />
-          <InputDate
-            label='Due Date'
-            onChange={handleDueDateChange}
-            value={dueDate}
-          />
+          <div className={styles.rightBlock}>
+            <InputDate
+              label='Due Date'
+              onChange={handleDueDateChange}
+              value={dueDate}
+            />
+            <Checkbox checked={paid} onChange={handlePaidChange} label='Paid' />
+          </div>
         </div>
         <InvoiceItems />
         <div className={styles.buttonsContainer}>

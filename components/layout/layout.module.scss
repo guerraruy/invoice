@@ -1,12 +1,14 @@
 .layout {
   display: flex;
   flex-direction: column;
-  // border: 3px solid green;
+  // border: 5px solid green;
   height: 100vh;
   overflow: hidden;
 
   main {
-    height: 100%;
-    // border: 8px solid black;
+    // height: 100%;
+    // border: 5px solid black;
+    flex: 1;
+    height: 0;
   }
 }
