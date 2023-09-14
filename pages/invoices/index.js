@@ -1,8 +1,11 @@
 import { useRouter } from 'next/router'
-import PageHeader from '../../components/ui/page-header'
-import styles from './invoices.module.scss'
-import Button from '../../components/ui/button'
 import { FaPlus } from 'react-icons/fa'
+
+import PageHeader from '../../components/ui/page-header'
+import Button from '../../components/ui/button'
+import InvoicesList from '../../components/invoices/invoicesList'
+
+import styles from './invoices.module.scss'
 
 const Invoices = () => {
   const router = useRouter()
@@ -16,7 +19,8 @@ const Invoices = () => {
       <Button className={styles.addButton} onClick={handleAddInvoice} round>
         <FaPlus />
       </Button>
-      <PageHeader>Dasboard</PageHeader>
+      <PageHeader>Invoices</PageHeader>
+      <InvoicesList />
     </section>
   )
 }

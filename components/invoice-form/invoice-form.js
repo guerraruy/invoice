@@ -9,6 +9,7 @@ import Button from '../ui/button'
 
 import styles from './invoice-form.module.scss'
 import { useRouter } from 'next/router'
+import { useAddInvoiceMutation } from '../../services/invoices'
 
 const InvoiceForm = () => {
   const { data, isLoading } = useGetClientsQuery() // populates client dropdown
@@ -17,6 +18,7 @@ const InvoiceForm = () => {
   const [dueDate, setDueDate] = useState('')
   const { items } = useSelector((state) => state.invoiceItems)
   const router = useRouter()
+  const [addInvoice] = useAddInvoiceMutation()
   useEffect(() => {
     if (data) {
       setOptions(data.map((e) => ({ value: e._id, text: e.name })))
@@ -36,7 +38,7 @@ const InvoiceForm = () => {
     router.push('/invoices')
   }
 
-  const handleSave = (e) => {
+  const handleSave = async (e) => {
     e.preventDefault()
     const invoice = {
       dueDate,
@@ -44,6 +46,8 @@ const InvoiceForm = () => {
       items,
     }
     console.log('NEW INVOICE', invoice)
+    const result = await addInvoice(invoice)
+    console.log('result', result)
     router.push('/invoices')
   }
 
