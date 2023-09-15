@@ -1,0 +1,16 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  env: {
+    db: {
+      // Please fill this variables with your Moingodb account
+      username: '',
+      password: '',
+      cluster: '',
+      database: '',
+      // ---------------------------------------------------------------------
+    },
+  },
+}
+
+module.exports = nextConfig

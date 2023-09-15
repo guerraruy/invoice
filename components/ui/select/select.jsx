@@ -1,18 +1,18 @@
 import styles from './select.module.scss'
 
-interface Option {
-  value: string | number
-  text: string
-}
+// interface Option {
+//   value: string | number
+//   text: string
+// }
 
-interface Props {
-  label?: string
-  options: Option[]
-  value: string | number
-  onChange: (id: string) => void
-}
+// interface Props {
+//   label?: string
+//   options: Option[]
+//   value: string | number
+//   onChange: (id: string) => void
+// }
 
-const Select = ({ label, options, value, onChange }: Props) => {
+const Select = ({ label, options, value, onChange }) => {
   const handleChange = (e) => {
     onChange(e.target.value)
   }

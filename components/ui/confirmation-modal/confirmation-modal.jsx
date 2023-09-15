@@ -3,15 +3,15 @@ import Modal from '../modal'
 
 import styles from './confirmation-modal.module.scss'
 
-interface Props {
-  title: string
-  body: string
-  noText?: string
-  yesText?: string
-  open: boolean
-  onClose: () => void
-  confirmCallback: () => void
-}
+// interface Props {
+//   title: string
+//   body: string
+//   noText?: string
+//   yesText?: string
+//   open: boolean
+//   onClose: () => void
+//   confirmCallback: () => void
+// }
 
 const ConfirmationModal = ({
   title = 'Please confirm',
@@ -21,7 +21,7 @@ const ConfirmationModal = ({
   onClose,
   open,
   confirmCallback,
-}: Props) => {
+}) => {
   const handleConfirm = () => {
     if (confirmCallback) {
       confirmCallback()

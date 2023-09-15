@@ -18,12 +18,12 @@ import Spinner from '../../components/ui/spinner'
 import styles from './invoice-form.module.scss'
 import { setInvoiceItems } from '@/redux/invoiceItemsSlice'
 
-interface Props {
-  id?: string
-  onGetInvoice?: (invoiceNo: number) => void
-}
+// interface Props {
+//   id?: string
+//   onGetInvoice?: (invoiceNo: number) => void
+// }
 
-const InvoiceForm = ({ id, onGetInvoice }: Props) => {
+const InvoiceForm = ({ id, onGetInvoice }) => {
   const { data: clients, isLoading: isLoadingClients } = useGetClientsQuery() // populates client dropdown
   const { data: invoice, isLoading: isLoadingInvoices } = useGetInvoiceQuery(
     id,
@@ -75,7 +75,7 @@ const InvoiceForm = ({ id, onGetInvoice }: Props) => {
     router.push('/invoices')
   }
 
-  const handleSave = async (e: React.SyntheticEvent) => {
+  const handleSave = async (e) => {
     e.preventDefault()
     const data = {
       dueDate,
