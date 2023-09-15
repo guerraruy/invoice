@@ -58,6 +58,10 @@ const InvoiceItems = () => {
             <FaPlus />
           </Button>
         </div>
+        <div className={styles.header}>
+          <div className={styles.headerDescription}>Description</div>
+          <div className={styles.headerAmount}>Amount</div>
+        </div>
         <div className={styles.listContainer}>{displayItems(items)}</div>
         {/* <div className={styles.buttonsContainer}>
           <Button type='button' onClick={handleCancel} outlined>

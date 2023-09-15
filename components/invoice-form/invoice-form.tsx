@@ -1,19 +1,30 @@
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { useGetClientsQuery } from '../../services/clients'
 import Select from '../ui/select'
 import InvoiceItems from '../invoice-items'
 import InputDate from '../ui/input-date'
 import Button from '../ui/button'
-
-import styles from './invoice-form.module.scss'
 import { useRouter } from 'next/router'
-import { useAddInvoiceMutation } from '../../services/invoices'
+import {
+  useAddInvoiceMutation,
+  useGetInvoiceQuery,
+  useUpdateInvoiceMutation,
+} from '../../services/invoices'
 import Checkbox from '../ui/CheckBox'
 
-const InvoiceForm = () => {
-  const { data, isLoading } = useGetClientsQuery() // populates client dropdown
+import styles from './invoice-form.module.scss'
+import { setInvoiceItems } from '@/redux/invoiceItemsSlice'
+
+interface Props {
+  id?: string
+}
+
+const InvoiceForm = ({ id }: Props) => {
+  const { data: clients } = useGetClientsQuery() // populates client dropdown
+  const { data: invoice, isLoading } = useGetInvoiceQuery(id, { skip: !id })
+  const [updateInvoice] = useUpdateInvoiceMutation()
   const [options, setOptions] = useState([])
   const [clientId, setClientId] = useState('')
   const [dueDate, setDueDate] = useState('')
@@ -21,11 +32,26 @@ const InvoiceForm = () => {
   const { items } = useSelector((state) => state.invoiceItems)
   const router = useRouter()
   const [addInvoice] = useAddInvoiceMutation()
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    if (data) {
-      setOptions(data.map((e) => ({ value: e._id, text: e.name })))
+    dispatch(setInvoiceItems([]))
+  }, [dispatch])
+
+  useEffect(() => {
+    if (clients) {
+      setOptions(clients.map((e) => ({ value: e._id, text: e.name })))
     }
-  }, [data])
+  }, [clients])
+
+  useEffect(() => {
+    if (invoice) {
+      setDueDate(invoice.dueDate)
+      setPaid(invoice.paid)
+      setClientId(invoice.clientId)
+      dispatch(setInvoiceItems(invoice.items))
+    }
+  }, [invoice, dispatch])
 
   const handleClientChange = (id) => {
     setClientId(id)
@@ -43,24 +69,41 @@ const InvoiceForm = () => {
     router.push('/invoices')
   }
 
-  const handleSave = async (e) => {
+  const handleSave = async (e: React.SyntheticEvent) => {
     e.preventDefault()
-    const invoice = {
+    const data = {
       dueDate,
       clientId,
       paid,
       items,
+      invoiceNumber: invoice.invoiceNumber,
     }
-    console.log('NEW INVOICE', invoice)
-    const result = await addInvoice(invoice)
-    console.log('result', result)
+    // console.log('NEW INVOICE', invoice)
+    // const result = await addInvoice(invoice)
+    // console.log('result', result)
+    // router.push('/invoices')
+
+    // const data = {
+    //   name,
+    // }
+
+    console.log('<> NEW INVOICE', data)
+
+    if (id) {
+      const result = await updateInvoice({ data, _id: id })
+    } else {
+      const result = await addInvoice(data)
+    }
     router.push('/invoices')
   }
+
+  const buttonText = id ? 'Save' : 'Create Invoice'
 
   return (
     <div className={styles.invoiceForm}>
       <form>
         <div className={styles.topContainer}>
+          <label>{`# ${invoice.invoiceNumber}`}</label>
           <Select
             options={options}
             value={clientId}
@@ -81,7 +124,7 @@ const InvoiceForm = () => {
           <Button type='button' onClick={handleCancel} outlined>
             Cancel
           </Button>
-          <Button onClick={handleSave}>Create Invoice</Button>
+          <Button onClick={handleSave}>{buttonText}</Button>
         </div>
       </form>
     </div>

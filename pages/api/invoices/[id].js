@@ -1,3 +1,5 @@
+import { ObjectId } from 'mongodb'
+
 import {
   dbConnect,
   deleteById,
@@ -20,6 +22,7 @@ const handler = async (req, res) => {
   }
 
   if (req.method === 'DELETE') {
+    console.log('=========== DELETE ================', id)
     const client = await dbConnect()
     const db = client.db()
 
@@ -34,7 +37,12 @@ const handler = async (req, res) => {
     const client = await dbConnect()
     const db = client.db()
 
-    const data = await updateById(db.collection('invoices'), id, req.body)
+    const body = {
+      ...req.body,
+      clientId: new ObjectId(req.body.clientId),
+    }
+
+    const data = await updateById(db.collection('invoices'), id, body)
 
     res.status(200).json({ data })
     client.close()

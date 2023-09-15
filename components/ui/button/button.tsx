@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 
 interface Props {
   children: ReactNode | string
-  onClick?: () => void
+  onClick?: (e: React.SyntheticEvent) => void
   className?: string
   round?: boolean
   outlined?: boolean

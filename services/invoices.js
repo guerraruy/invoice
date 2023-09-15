@@ -43,8 +43,9 @@ export const invoicesApi = baseService.injectEndpoints({
     }),
     updateInvoice: build.mutation({
       query: (postData) => {
+        console.log('####', postData)
         return {
-          url: `/unvoices/${postData._id}`,
+          url: `/invoices/${postData._id}`,
           method: 'PUT',
           body: { ...postData.data },
         }

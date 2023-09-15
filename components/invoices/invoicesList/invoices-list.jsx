@@ -1,5 +1,8 @@
 import styles from './invoices-list.module.scss'
-import { useGetAllInvoicesQuery } from '../../../services/invoices'
+import {
+  useDeleteInvoiceMutation,
+  useGetAllInvoicesQuery,
+} from '../../../services/invoices'
 import InvoiceRow from '../invoiceRow'
 import Spinner from '../../ui/spinner'
 import { useRouter } from 'next/router'
@@ -8,6 +11,7 @@ import { useState } from 'react'
 
 const InvoicesList = () => {
   const { data: invoices, isLoading } = useGetAllInvoicesQuery()
+  const [deleteInvoice] = useDeleteInvoiceMutation()
   const router = useRouter()
   const [idToBeDeleted, setIdToBeDeleted] = useState(null)
 
@@ -16,8 +20,9 @@ const InvoicesList = () => {
     router.push(`/invoices/${id}`)
   }
 
-  const handleDelete = (id) => {
-    console.log('delete', id)
+  const handleDelete = () => {
+    deleteInvoice(idToBeDeleted)
+    console.log('delete', idToBeDeleted)
   }
 
   const handleConfirm = (id) => {
