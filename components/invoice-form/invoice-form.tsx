@@ -13,17 +13,22 @@ import {
   useUpdateInvoiceMutation,
 } from '../../services/invoices'
 import Checkbox from '../ui/CheckBox'
+import Spinner from '../../components/ui/spinner'
 
 import styles from './invoice-form.module.scss'
 import { setInvoiceItems } from '@/redux/invoiceItemsSlice'
 
 interface Props {
   id?: string
+  onGetInvoice?: (invoiceNo: number) => void
 }
 
-const InvoiceForm = ({ id }: Props) => {
-  const { data: clients } = useGetClientsQuery() // populates client dropdown
-  const { data: invoice, isLoading } = useGetInvoiceQuery(id, { skip: !id })
+const InvoiceForm = ({ id, onGetInvoice }: Props) => {
+  const { data: clients, isLoading: isLoadingClients } = useGetClientsQuery() // populates client dropdown
+  const { data: invoice, isLoading: isLoadingInvoices } = useGetInvoiceQuery(
+    id,
+    { skip: !id }
+  )
   const [updateInvoice] = useUpdateInvoiceMutation()
   const [options, setOptions] = useState([])
   const [clientId, setClientId] = useState('')
@@ -46,12 +51,13 @@ const InvoiceForm = ({ id }: Props) => {
 
   useEffect(() => {
     if (invoice) {
+      onGetInvoice && onGetInvoice(invoice.invoiceNumber)
       setDueDate(invoice.dueDate)
       setPaid(invoice.paid)
       setClientId(invoice.clientId)
       dispatch(setInvoiceItems(invoice.items))
     }
-  }, [invoice, dispatch])
+  }, [invoice, dispatch, onGetInvoice])
 
   const handleClientChange = (id) => {
     setClientId(id)
@@ -99,23 +105,30 @@ const InvoiceForm = ({ id }: Props) => {
 
   const buttonText = id ? 'Save' : 'Create Invoice'
 
+  if (isLoadingClients || isLoadingInvoices) {
+    return <Spinner />
+  }
+
   return (
     <div className={styles.invoiceForm}>
       <form>
         <div className={styles.topContainer}>
-          <label>{`# ${invoice.invoiceNumber}`}</label>
-          <Select
-            options={options}
-            value={clientId}
-            onChange={handleClientChange}
-          />
-          <div className={styles.spacer} />
-          <div className={styles.rightBlock}>
-            <InputDate
-              label='Due Date'
-              onChange={handleDueDateChange}
-              value={dueDate}
+          {/* <label>{`Invoice # ${invoice?.invoiceNumber}`}</label> */}
+          <div className={styles.control}>
+            <label>Client</label>
+            <Select
+              options={options}
+              value={clientId}
+              onChange={handleClientChange}
             />
+          </div>
+          <div className={styles.control}>
+            <label>Due Date</label>
+            <InputDate onChange={handleDueDateChange} value={dueDate} />
+          </div>
+
+          {/* <div className={styles.spacer} /> */}
+          <div className={styles.rightBlock}>
             <Checkbox checked={paid} onChange={handlePaidChange} label='Paid' />
           </div>
         </div>

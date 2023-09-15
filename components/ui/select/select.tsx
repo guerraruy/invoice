@@ -6,19 +6,20 @@ interface Option {
 }
 
 interface Props {
+  label?: string
   options: Option[]
   value: string | number
   onChange: (id: string) => void
 }
 
-const Select = ({ options, value, onChange }: Props) => {
+const Select = ({ label, options, value, onChange }: Props) => {
   const handleChange = (e) => {
     onChange(e.target.value)
   }
 
   return (
     <div className={styles.select}>
-      <label>Client:</label>
+      {label && <label>{label}</label>}
       <select name='clients' value={value} onChange={handleChange}>
         {options.map((e) => (
           <option key={e.value} value={e.value}>

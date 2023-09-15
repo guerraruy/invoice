@@ -8,10 +8,21 @@
     .topContainer {
       // border: 1px solid green;
       display: flex;
-      align-items: flex-end;
-      .spacer {
-        flex: 1;
+      flex-direction: column;
+      gap: 10px;
+      .control {
+        display: flex;
+        align-items: center;
+        label {
+          width: 100px;
+          // border: 2px solid red;
+        }
       }
+
+      // align-items: flex-end;
+      // .spacer {
+      //   flex: 1;
+      // }
       .rightBlock {
         display: flex;
         flex-direction: column;

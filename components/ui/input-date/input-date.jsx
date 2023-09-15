@@ -7,7 +7,7 @@ const InputDate = ({ label, value, onChange, ...rest }) => {
 
   return (
     <div className={styles.inputDate}>
-      <label>{label}</label>
+      {label && <label>{label}</label>}
       <input type='date' value={value} onChange={handleChange} {...rest} />
     </div>
   )
