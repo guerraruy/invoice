@@ -7,6 +7,7 @@ const config = {
   session: {
     jwt: true,
   },
+  secret: process.env.nextAuthSecret,
   providers: [
     CredentialsProvider({
       async authorize(credentials, req) {
