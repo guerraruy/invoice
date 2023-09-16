@@ -6,6 +6,7 @@ import toast from 'react-hot-toast'
 
 import Input from '../ui/input'
 import Button from '../ui/button'
+import { isValidEmail } from '../../helpers/validators'
 
 import styles from './auth-form.module.scss'
 
@@ -37,6 +38,14 @@ const AuthForm = () => {
         router.push('./invoices')
       }
     } else {
+      if (!isValidEmail(email)) {
+        toast.error('Invalid email')
+        return
+      }
+      if (password?.length < 6) {
+        toast.error('Password must have at least 6 characters')
+        return
+      }
       const data = {
         email,
         password,
