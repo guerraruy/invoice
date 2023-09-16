@@ -1,13 +1,15 @@
-import styles from './invoices-list.module.scss'
+import { useState } from 'react'
+import { useRouter } from 'next/router'
+
 import {
   useDeleteInvoiceMutation,
   useGetAllInvoicesQuery,
-} from '../../../services/invoices'
-import InvoiceRow from '../invoiceRow'
-import Spinner from '../../ui/spinner'
-import { useRouter } from 'next/router'
-import ConfirmationModal from '../../ui/confirmation-modal'
-import { useState } from 'react'
+} from '@/services/invoices'
+import InvoiceRow from '@/components/invoices/invoiceRow'
+import Spinner from '@/components/ui/spinner'
+import ConfirmationModal from '@/components/ui/confirmation-modal'
+
+import styles from './invoices-list.module.scss'
 
 const InvoicesList = () => {
   const { data: invoices, isLoading } = useGetAllInvoicesQuery()

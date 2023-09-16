@@ -1,8 +1,10 @@
-import styles from './add-invoice-item-modal.module.scss'
-import Modal from '../ui/modal'
-import Button from '../ui/button'
-import Input from '../ui/input'
 import { useState } from 'react'
+
+import Modal from '@/components/ui/modal'
+import Button from '@/components/ui/button'
+import Input from '@/components/ui/input'
+
+import styles from './add-invoice-item-modal.module.scss'
 
 const AddInvoiceItemModal = ({ open, onClose, onSave, title }) => {
   const [description, setDescription] = useState('')

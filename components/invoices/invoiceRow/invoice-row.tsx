@@ -1,8 +1,8 @@
 import {
   getStatusFromInvoice,
   getTotalAmountFromInvoice,
-} from '../../../helpers/invoices'
-import InvoiceActions from '../invoice-actions/invoice-actions'
+} from '@/helpers/invoices'
+import InvoiceActions from '@/components/invoices/invoice-actions'
 
 import styles from './invoice-row.module.scss'
 

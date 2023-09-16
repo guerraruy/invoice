@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { useAddUserMutation } from '../../services/usersApi'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import toast from 'react-hot-toast'
 
-import Input from '../ui/input'
-import Button from '../ui/button'
-import { isValidEmail } from '../../helpers/validators'
+import { useAddUserMutation } from '@/services/usersApi'
+import Input from '@/components/ui/input'
+import Button from '@/components/ui/button'
+import { isValidEmail } from '@/helpers/validators'
 
 import styles from './auth-form.module.scss'
 

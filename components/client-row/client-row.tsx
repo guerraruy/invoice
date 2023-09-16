@@ -1,7 +1,9 @@
-import styles from './client-row.module.scss'
 import { FaRegTrashCan } from 'react-icons/fa6'
 import { FaPencil } from 'react-icons/fa6'
-import IconButton from '../ui/icon-button'
+
+import IconButton from '@/components/ui/icon-button'
+
+import styles from './client-row.module.scss'
 
 interface Props {
   name: string
@@ -9,7 +11,11 @@ interface Props {
   onDelete: () => void
 }
 
-const ClientRow = ({ name, onEdit, onDelete }: Props) => {
+const ClientRow: React.FC<Props> = ({
+  name,
+  onEdit,
+  onDelete,
+}): React.ReactElement => {
   return (
     <div className={styles.clientRow}>
       <div className={styles.name}>{name}</div>

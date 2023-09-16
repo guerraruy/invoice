@@ -1,6 +1,8 @@
-import IconButton from '@/components/ui/icon-button'
-import styles from './invoice-actions.module.scss'
 import { FaPencil, FaRegTrashCan, FaRegFilePdf } from 'react-icons/fa6'
+
+import IconButton from '@/components/ui/icon-button'
+
+import styles from './invoice-actions.module.scss'
 
 interface Props {
   onEdit: () => void

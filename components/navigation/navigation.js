@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useSession, signOut } from 'next-auth/react'
-import { isAuthenticate } from '../../helpers/auth'
+
+import { isAuthenticate } from '@/helpers/auth'
 
 import styles from './navigation.module.scss'
 

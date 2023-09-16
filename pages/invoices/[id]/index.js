@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
-import InvoiceForm from '../../../components/invoices/invoice-form'
-import PageHeader from '../../../components/ui/page-header'
-import useAuthenticated from '../../../hooks/useAuthenticated'
+import InvoiceForm from '@/components/invoices/invoice-form'
+import PageHeader from '@/components/ui/page-header'
+import useAuthenticated from '@/hooks/useAuthenticated'
 
 import styles from './edit-invoice-page.module.scss'
 

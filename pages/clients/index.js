@@ -2,15 +2,12 @@ import { useRouter } from 'next/router'
 import { FaPlus } from 'react-icons/fa'
 import { useState } from 'react'
 
-import PageHeader from '../../components/ui/page-header'
-import {
-  useDeleteClientMutation,
-  useGetClientsQuery,
-} from '../../services/clients'
-import ClientRow from '../../components/client-row'
-import ConfirmationModal from '../../components/ui/confirmation-modal'
-import Button from '../../components/ui/button'
-import useAuthenticated from '../../hooks/useAuthenticated'
+import PageHeader from '@/components/ui/page-header'
+import { useDeleteClientMutation, useGetClientsQuery } from '@/services/clients'
+import ClientRow from '@/components/client-row'
+import ConfirmationModal from '@/components/ui/confirmation-modal'
+import Button from '@/components/ui/button'
+import useAuthenticated from '@/hooks/useAuthenticated'
 
 import styles from './clients.module.scss'
 

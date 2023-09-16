@@ -3,10 +3,10 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { useDispatch, useSelector } from 'react-redux'
 
-import Button from '../../ui/button'
-import InvoiceItem from '../../invoices/invoice-item'
-import AddInvoiceItemModal from '../../add-invoice-item-modal'
-import { addInvoiceItem } from '../../../redux/invoiceItemsSlice'
+import Button from '@/components/ui/button'
+import InvoiceItem from '@/components/invoices/invoice-item'
+import AddInvoiceItemModal from '@/components/add-invoice-item-modal'
+import { addInvoiceItem } from '@/redux/invoiceItemsSlice'
 
 import styles from './invoice-items.module.scss'
 

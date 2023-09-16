@@ -1,4 +1,6 @@
-export const getStatusFromInvoice = (invoice) => {
+import { Invoice } from '@/interfaces/Invoice'
+
+export const getStatusFromInvoice = (invoice: Invoice) => {
   const dueDate = new Date(invoice.dueDate)
   let status
   if (invoice.paid) {
@@ -14,7 +16,7 @@ export const getStatusFromInvoice = (invoice) => {
   return status
 }
 
-export const getTotalAmountFromInvoice = (invoice) => {
+export const getTotalAmountFromInvoice = (invoice: Invoice) => {
   const total = invoice.items.reduce((acc, ele) => acc + ele.amount, 0)
   return total
 }
