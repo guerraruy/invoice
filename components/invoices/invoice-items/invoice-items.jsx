@@ -7,22 +7,35 @@ import Button from '@/components/ui/button'
 import InvoiceItem from '@/components/invoices/invoice-item'
 import AddInvoiceItemModal from '@/components/add-invoice-item-modal'
 import { addInvoiceItem } from '@/redux/invoiceItemsSlice'
+import ConfirmationModal from '@/components/ui/confirmation-modal'
+import { removeInvoiceItem } from '@/redux/invoiceItemsSlice'
 
 import styles from './invoice-items.module.scss'
 
 const InvoiceItems = () => {
-  const [open, setOpen] = useState(false)
+  const [openAddInvoiceModal, setOpenAddInvoiceModal] = useState(false)
+  const [idToBeDeleted, setIdToBeDeleted] = useState(null)
   const { items } = useSelector((state) => state.invoiceItems)
   const dispatch = useDispatch()
   const router = useRouter()
 
   const handleAddItem = (e) => {
     e.preventDefault()
-    setOpen(true)
+    setOpenAddInvoiceModal(true)
   }
 
   const handleClose = () => {
-    setOpen(false)
+    setOpenAddInvoiceModal(false)
+  }
+
+  const handleEditItem = (item) => {
+    // e.preventDefault()
+    console.log('edit item ', item)
+  }
+
+  const handleDeleteItem = () => {
+    // console.log('delete item ', item)
+    dispatch(removeInvoiceItem(idToBeDeleted))
   }
 
   const handleSaveItem = (item) => {
@@ -32,13 +45,24 @@ const InvoiceItems = () => {
       amount: +item.amount,
     }
     dispatch(addInvoiceItem(data))
-    setOpen(false)
+    setOpenAddInvoiceModal(false)
+  }
+
+  const handleConfirm = (id) => {
+    setIdToBeDeleted(id)
   }
 
   const displayItems = (items) => {
     if (items?.length > 0) {
       return items.map((item) => {
-        return <InvoiceItem key={item.id} item={item} />
+        return (
+          <InvoiceItem
+            key={item.id}
+            item={item}
+            onEdit={() => handleEditItem(item)}
+            onDelete={() => handleConfirm(item)}
+          />
+        )
       })
     } else {
       return (
@@ -64,18 +88,18 @@ const InvoiceItems = () => {
           <div className={styles.headerActions}>Actions</div>
         </div>
         <div className={styles.listContainer}>{displayItems(items)}</div>
-        {/* <div className={styles.buttonsContainer}>
-          <Button type='button' onClick={handleCancel} outlined>
-            Cancel
-          </Button>
-          <Button onClick={handleSave}>Create Invoice</Button>
-        </div> */}
       </div>
       <AddInvoiceItemModal
-        open={open}
+        open={openAddInvoiceModal}
         onClose={handleClose}
         title='Add Item'
         onSave={handleSaveItem}
+      />
+      <ConfirmationModal
+        open={idToBeDeleted}
+        body={`Are you sure you only want to delete this item?`}
+        onClose={() => setIdToBeDeleted(null)}
+        confirmCallback={handleDeleteItem}
       />
     </>
   )

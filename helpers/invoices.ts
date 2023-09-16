@@ -1,4 +1,4 @@
-import { Invoice } from '@/interfaces/Invoice'
+import { Invoice } from '@/interfaces'
 
 export const getStatusFromInvoice = (invoice: Invoice) => {
   const dueDate = new Date(invoice.dueDate)

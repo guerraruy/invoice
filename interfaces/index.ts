@@ -4,14 +4,16 @@ export interface invoiceItems {
 }
 
 export interface Client {
+  _id?: string
   name: string
 }
 
 export interface Invoice {
-  _id: string
+  _id?: string
   paid: boolean
   items: invoiceItems[]
   dueDate: Date
   clientId: string
   client?: Client
+  invoiceNumber?: number
 }

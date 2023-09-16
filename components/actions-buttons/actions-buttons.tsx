@@ -7,21 +7,35 @@ import styles from './actions-buttons.module.scss'
 interface Props {
   onEdit: () => void
   onDelete: () => void
-  onExport: () => void
+  onExport?: () => void
 }
 
 const ActionsButtons = ({ onEdit, onDelete, onExport }: Props) => {
+  const handleExport = (e) => {
+    e.preventDefault()
+    onExport && onExport()
+  }
+  const handleEdit = (e) => {
+    e.preventDefault()
+    onEdit && onEdit()
+  }
+  const handleDelete = (e) => {
+    e.preventDefault()
+    onDelete && onDelete()
+  }
   return (
     <div className={styles.actionsButtons}>
-      <IconButton onClick={onEdit}>
+      <IconButton onClick={handleEdit}>
         <FaPencil />
       </IconButton>
-      <IconButton onClick={onDelete}>
+      <IconButton onClick={handleDelete}>
         <FaRegTrashCan />
       </IconButton>
-      <IconButton onClick={onExport}>
-        <FaRegFilePdf />
-      </IconButton>
+      {onExport && (
+        <IconButton onClick={handleExport}>
+          <FaRegFilePdf />
+        </IconButton>
+      )}
     </div>
   )
 }

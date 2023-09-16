@@ -3,6 +3,7 @@ import {
   getTotalAmountFromInvoice,
 } from '@/helpers/invoices'
 import ActionsButtons from '@/components/actions-buttons'
+import { Invoice } from '../../../interfaces'
 
 import styles from './invoice-row.module.scss'
 
@@ -16,19 +17,18 @@ interface InvoiceItems {
   amount: number
 }
 interface Props {
-  invoice: {
-    _id: string
-    dueDate: string
-    client: Client[]
-    invoiceNumber: number
-    items: InvoiceItems[]
-  }
+  invoice: Invoice
   onEdit: () => void
   onDelete: () => void
   onExport: () => void
 }
 
-const InvoiceRow = ({ invoice, onEdit, onDelete, onExport }: Props) => {
+const InvoiceRow: React.FC<Props> = ({
+  invoice,
+  onEdit,
+  onDelete,
+  onExport,
+}: Props) => {
   const dueDate = new Date(invoice.dueDate)
   const due = dueDate.toLocaleDateString()
   const client = invoice.client[0].name

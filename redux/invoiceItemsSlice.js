@@ -16,7 +16,8 @@ const invoiceItemsSlice = createSlice({
     },
     removeInvoiceItem: (state, action) => {
       const id = action.payload
-      return state.items.filter((e) => e.id !== id)
+      const index = state.items.findIndex((e) => e.id === id)
+      state.items.splice(index, 1)
     },
     updateInvoiceItem: (state, action) => {
       const item = action.payload
