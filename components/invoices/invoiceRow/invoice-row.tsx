@@ -2,7 +2,7 @@ import {
   getStatusFromInvoice,
   getTotalAmountFromInvoice,
 } from '@/helpers/invoices'
-import InvoiceActions from '@/components/invoices/invoice-actions'
+import ActionsButtons from '@/components/actions-buttons'
 
 import styles from './invoice-row.module.scss'
 
@@ -44,7 +44,7 @@ const InvoiceRow = ({ invoice, onEdit, onDelete, onExport }: Props) => {
       <div className={styles.invoiceAmount}>{amount}</div>
       <div className={styles.invoiceStatus}>{status}</div>
       <div className={styles.invoiceActions}>
-        <InvoiceActions
+        <ActionsButtons
           onEdit={onEdit}
           onDelete={onDelete}
           onExport={onExport}

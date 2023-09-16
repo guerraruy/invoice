@@ -2,7 +2,7 @@ import { FaPencil, FaRegTrashCan, FaRegFilePdf } from 'react-icons/fa6'
 
 import IconButton from '@/components/ui/icon-button'
 
-import styles from './invoice-actions.module.scss'
+import styles from './actions-buttons.module.scss'
 
 interface Props {
   onEdit: () => void
@@ -10,9 +10,9 @@ interface Props {
   onExport: () => void
 }
 
-const InvoiceActions = ({ onEdit, onDelete, onExport }: Props) => {
+const ActionsButtons = ({ onEdit, onDelete, onExport }: Props) => {
   return (
-    <div className={styles.invoiceActions}>
+    <div className={styles.actionsButtons}>
       <IconButton onClick={onEdit}>
         <FaPencil />
       </IconButton>
@@ -26,4 +26,4 @@ const InvoiceActions = ({ onEdit, onDelete, onExport }: Props) => {
   )
 }
 
-export default InvoiceActions
+export default ActionsButtons

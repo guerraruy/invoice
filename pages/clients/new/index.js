@@ -1,4 +1,4 @@
-import ClientForm from '@/components/client-form'
+import ClientForm from '@/components/clients/client-form'
 import PageHeader from '@/components/ui/page-header'
 import useAuthenticated from '@/hooks/useAuthenticated'
 

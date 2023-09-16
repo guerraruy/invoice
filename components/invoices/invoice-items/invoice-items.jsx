@@ -61,6 +61,7 @@ const InvoiceItems = () => {
         <div className={styles.header}>
           <div className={styles.headerDescription}>Description</div>
           <div className={styles.headerAmount}>Amount</div>
+          <div className={styles.headerActions}>Actions</div>
         </div>
         <div className={styles.listContainer}>{displayItems(items)}</div>
         {/* <div className={styles.buttonsContainer}>

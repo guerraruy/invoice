@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import PageHeader from '@/components/ui/page-header'
 import { useDeleteClientMutation, useGetClientsQuery } from '@/services/clients'
-import ClientRow from '@/components/client-row'
+import ClientRow from '@/components/clients/client-row'
 import ConfirmationModal from '@/components/ui/confirmation-modal'
 import Button from '@/components/ui/button'
 import useAuthenticated from '@/hooks/useAuthenticated'
@@ -27,7 +27,6 @@ const Clients = () => {
   }
 
   const handleDelete = async () => {
-    console.log('DELETE>>>', idToBeDeleted)
     await deleteClient(idToBeDeleted)
   }
 
