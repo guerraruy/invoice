@@ -5,32 +5,36 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import Button from '@/components/ui/button'
 import InvoiceItem from '@/components/invoices/invoice-item'
-import AddInvoiceItemModal from '@/components/add-invoice-item-modal'
-import { addInvoiceItem } from '@/redux/invoiceItemsSlice'
+import InvoiceItemFormModal from '@/components/invoices/invoice-item-form-modal'
+import { addInvoiceItem, updateInvoiceItem } from '@/redux/invoiceItemsSlice'
 import ConfirmationModal from '@/components/ui/confirmation-modal'
 import { removeInvoiceItem } from '@/redux/invoiceItemsSlice'
 
 import styles from './invoice-items.module.scss'
 
 const InvoiceItems = () => {
-  const [openAddInvoiceModal, setOpenAddInvoiceModal] = useState(false)
+  const [openInvoiceItemFormModal, setOpenInvoiceItemFormModal] =
+    useState(false)
   const [idToBeDeleted, setIdToBeDeleted] = useState(null)
+  const [itemToBeEdited, setItemToBeEdited] = useState(null)
   const { items } = useSelector((state) => state.invoiceItems)
   const dispatch = useDispatch()
   const router = useRouter()
 
   const handleAddItem = (e) => {
     e.preventDefault()
-    setOpenAddInvoiceModal(true)
+    setOpenInvoiceItemFormModal(true)
   }
 
   const handleClose = () => {
-    setOpenAddInvoiceModal(false)
+    setOpenInvoiceItemFormModal(false)
+    setItemToBeEdited(null)
   }
 
   const handleEditItem = (item) => {
     // e.preventDefault()
-    console.log('edit item ', item)
+    setItemToBeEdited(item)
+    setOpenInvoiceItemFormModal(true)
   }
 
   const handleDeleteItem = () => {
@@ -39,13 +43,24 @@ const InvoiceItems = () => {
   }
 
   const handleSaveItem = (item) => {
-    const data = {
-      id: self.crypto.randomUUID(),
-      ...item,
-      amount: +item.amount,
+    console.log('item.id', item)
+    if (item.id) {
+      // Update Item
+      const data = {
+        ...item,
+        amount: +item.amount,
+      }
+      dispatch(updateInvoiceItem(data))
+    } else {
+      // Add new item
+      const data = {
+        id: self.crypto.randomUUID(),
+        ...item,
+        amount: +item.amount,
+      }
+      dispatch(addInvoiceItem(data))
     }
-    dispatch(addInvoiceItem(data))
-    setOpenAddInvoiceModal(false)
+    setOpenInvoiceItemFormModal(false)
   }
 
   const handleConfirm = (id) => {
@@ -89,11 +104,11 @@ const InvoiceItems = () => {
         </div>
         <div className={styles.listContainer}>{displayItems(items)}</div>
       </div>
-      <AddInvoiceItemModal
-        open={openAddInvoiceModal}
+      <InvoiceItemFormModal
+        open={openInvoiceItemFormModal}
         onClose={handleClose}
-        title='Add Item'
         onSave={handleSaveItem}
+        item={itemToBeEdited}
       />
       <ConfirmationModal
         open={idToBeDeleted}

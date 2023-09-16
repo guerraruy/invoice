@@ -18,7 +18,6 @@ const InvoicesList = () => {
   const [idToBeDeleted, setIdToBeDeleted] = useState(null)
 
   const handleEdit = (id) => {
-    console.log('edit', id)
     router.push(`/invoices/${id}`)
   }
 

@@ -1,14 +1,23 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import Modal from '@/components/ui/modal'
 import Button from '@/components/ui/button'
 import Input from '@/components/ui/input'
 
-import styles from './add-invoice-item-modal.module.scss'
+import styles from './invoice-item-form-modal.module.scss'
 
-const AddInvoiceItemModal = ({ open, onClose, onSave, title }) => {
+const InvoiceItemFormModal = ({ open, onClose, onSave, item }) => {
   const [description, setDescription] = useState('')
   const [amount, setAmount] = useState('')
+  useEffect(() => {
+    if (item) {
+      setDescription(item.description)
+      setAmount(item.amount)
+    } else {
+      setDescription('')
+      setAmount('')
+    }
+  }, [item])
 
   const handleChangeDescription = (e) => {
     setDescription(e.target.value)
@@ -19,15 +28,21 @@ const AddInvoiceItemModal = ({ open, onClose, onSave, title }) => {
   }
 
   const handleSave = () => {
-    onSave({
+    const data = {
       description,
       amount,
-    })
+    }
+    if (item) {
+      data.id = item.id
+    }
+    onSave(data)
   }
+
+  const title = item ? 'Edit Item' : 'Add Item'
 
   return (
     <Modal open={open} onClose={onClose}>
-      <div className={styles.addInvoiceItemModal}>
+      <div className={styles.invoiceItemFormModal}>
         <h3 className={styles.title}>{title}</h3>
         <hr className={styles.topRule} />
         <Input
@@ -56,4 +71,4 @@ const AddInvoiceItemModal = ({ open, onClose, onSave, title }) => {
   )
 }
 
-export default AddInvoiceItemModal
+export default InvoiceItemFormModal

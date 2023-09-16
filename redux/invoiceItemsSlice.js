@@ -21,9 +21,11 @@ const invoiceItemsSlice = createSlice({
     },
     updateInvoiceItem: (state, action) => {
       const item = action.payload
-      return state.items.map((e) => {
-        return e.id === item.id ? item : e
-      })
+      const index = state.items.findIndex((e) => e.id === item.id)
+      state.items[index] = item
+      // return state.items.map((e) => {
+      //   return e.id === item.id ? item : e
+      // })
     },
   },
 })

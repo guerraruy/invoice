@@ -93,8 +93,6 @@ const InvoiceForm = ({ id, onGetInvoice }) => {
     //   name,
     // }
 
-    console.log('<> NEW INVOICE', data)
-
     if (id) {
       const result = await updateInvoice({ data, _id: id })
     } else {
