@@ -1,4 +1,4 @@
-import InvoiceForm from '../../../components/invoice-form'
+import InvoiceForm from '../../../components/invoices/invoice-form'
 import PageHeader from '../../../components/ui/page-header'
 import useAuthenticated from '../../../hooks/useAuthenticated'
 

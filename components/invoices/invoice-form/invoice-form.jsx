@@ -1,22 +1,22 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-
-import { useGetClientsQuery } from '../../services/clients'
-import Select from '../ui/select'
-import InvoiceItems from '../invoice-items'
-import InputDate from '../ui/input-date'
-import Button from '../ui/button'
 import { useRouter } from 'next/router'
+import { setInvoiceItems } from '@/redux/invoiceItemsSlice'
+
+import { useGetClientsQuery } from '../../../services/clients'
+import Select from '../../ui/select'
+import InvoiceItems from '../../invoices/invoice-items'
+import InputDate from '../../ui/input-date'
+import Button from '../../ui/button'
 import {
   useAddInvoiceMutation,
   useGetInvoiceQuery,
   useUpdateInvoiceMutation,
-} from '../../services/invoices'
-import Checkbox from '../ui/CheckBox'
-import Spinner from '../../components/ui/spinner'
+} from '../../../services/invoices'
+import Checkbox from '../../ui/checkbox'
+import Spinner from '../../../components/ui/spinner'
 
 import styles from './invoice-form.module.scss'
-import { setInvoiceItems } from '@/redux/invoiceItemsSlice'
 
 // interface Props {
 //   id?: string
