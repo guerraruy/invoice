@@ -1,12 +1,14 @@
 import { useRouter } from 'next/router'
+import { useState } from 'react'
 
 import InvoiceForm from '../../../components/invoice-form'
 import PageHeader from '../../../components/ui/page-header'
+import useAuthenticated from '../../../hooks/useAuthenticated'
 
 import styles from './edit-invoice-page.module.scss'
-import { useState } from 'react'
 
 const EditInvoicePage = () => {
+  useAuthenticated()
   const router = useRouter()
   const [invoiceNumber, setInvoiceNumber] = useState('')
 

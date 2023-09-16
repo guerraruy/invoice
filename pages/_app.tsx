@@ -6,6 +6,7 @@ import Layout from '../components/layout/layout'
 import { Provider } from 'react-redux'
 import { store } from '../redux/store'
 import { SessionProvider } from 'next-auth/react'
+import CustomToaster from '../components/ui/custom-toaster'
 
 function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
@@ -13,6 +14,7 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
       <SessionProvider session={session}>
         <Layout>
           <Component {...pageProps} />
+          <CustomToaster />
         </Layout>
       </SessionProvider>
     </Provider>

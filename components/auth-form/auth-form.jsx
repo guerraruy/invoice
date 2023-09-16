@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { useAddUserMutation } from '../../services/usersApi'
 import { signIn } from 'next-auth/react'
+import { useRouter } from 'next/router'
+import toast from 'react-hot-toast'
 
 import Input from '../ui/input'
 import Button from '../ui/button'
@@ -12,6 +14,7 @@ const AuthForm = () => {
   const [password, setPassword] = useState('')
   const [isLogin, toggleMode] = useState(false)
   const [signUp] = useAddUserMutation()
+  const router = useRouter()
 
   // const handleSubmit = (e) => {
   //   e.preventDefault()
@@ -23,18 +26,22 @@ const AuthForm = () => {
     e.preventDefault()
 
     if (isLogin) {
-      const result = await signIn('credentials', {
+      const { error } = await signIn('credentials', {
         email,
         password,
         redirect: false,
       })
+      if (error) {
+        toast.error(error)
+      } else {
+        router.push('./invoices')
+      }
     } else {
       const data = {
         email,
         password,
       }
       const result = await signUp(data)
-      console.log(result)
     }
   }
 

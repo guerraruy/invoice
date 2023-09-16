@@ -1,5 +1,7 @@
 import { useRouter } from 'next/router'
-import styles from './clients.module.scss'
+import { FaPlus } from 'react-icons/fa'
+import { useState } from 'react'
+
 import PageHeader from '../../components/ui/page-header'
 import {
   useDeleteClientMutation,
@@ -7,11 +9,13 @@ import {
 } from '../../services/clients'
 import ClientRow from '../../components/client-row'
 import ConfirmationModal from '../../components/ui/confirmation-modal'
-import { useState } from 'react'
 import Button from '../../components/ui/button'
-import { FaPlus } from 'react-icons/fa'
+import useAuthenticated from '../../hooks/useAuthenticated'
+
+import styles from './clients.module.scss'
 
 const Clients = () => {
+  useAuthenticated()
   const router = useRouter()
   const [idToBeDeleted, setIdToBeDeleted] = useState(null)
   const { data, isLoading } = useGetClientsQuery()
