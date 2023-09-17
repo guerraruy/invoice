@@ -2,7 +2,11 @@ import { GrMenu } from 'react-icons/gr'
 
 import styles from './menu-button.module.scss'
 
-const MenuButton = ({ onClick }) => {
+interface Props {
+  onClick: () => void
+}
+
+const MenuButton: React.FC<Props> = ({ onClick }): JSX.Element => {
   return (
     <div className={styles.menuButton} onClick={onClick}>
       <GrMenu />

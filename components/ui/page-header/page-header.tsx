@@ -4,7 +4,7 @@ interface Props {
   children: string
 }
 
-const PageHeader = ({ children }: Props) => {
+const PageHeader: React.FC<Props> = ({ children }): JSX.Element => {
   return <div className={styles.pageHeader}>{children}</div>
 }
 

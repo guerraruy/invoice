@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 import styles from './logo.module.scss'
 
-const Logo = () => {
+const Logo: React.FC = (): JSX.Element => {
   const router = useRouter()
 
   const handleClick = () => {

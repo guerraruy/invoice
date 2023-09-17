@@ -1,6 +1,6 @@
 import styles from './spinner.module.scss'
 
-const Spinner = () => {
+const Spinner: React.FC = (): JSX.Element => {
   return (
     <div className={styles.skFadingCircle}>
       <div className={`${styles.skCircle1} ${styles.skCircle}`}></div>

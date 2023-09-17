@@ -1,7 +1,18 @@
 import styles from './input-date.module.scss'
 
-const InputDate = ({ label, value, onChange, ...rest }) => {
-  const handleChange = (e) => {
+interface Props {
+  label: string
+  value: string
+  onChange: (e: string) => void
+}
+
+const InputDate: React.FC<Props> = ({
+  label,
+  value,
+  onChange,
+  ...rest
+}): JSX.Element => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value)
   }
 
