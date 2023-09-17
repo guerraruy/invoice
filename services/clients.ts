@@ -1,17 +1,16 @@
 import { baseService } from './baseService'
+import { Client } from '@/interfaces'
 
 export const clientsApi = baseService.injectEndpoints({
   endpoints: (build) => ({
-    getClients: build.query({
+    getClients: build.query<Client[], void>({
       query: () => {
         return {
           url: '/clients',
           method: 'GET',
         }
       },
-      transformResponse: (response) => {
-        return response.data
-      },
+      transformResponse: (response: any) => response.data,
       providesTags: ['Clients'],
     }),
     getClient: build.query({
@@ -24,7 +23,7 @@ export const clientsApi = baseService.injectEndpoints({
       providesTags: (result, error, arg, meta) => {
         return [{ type: 'Clients', id: arg }]
       },
-      transformResponse: (response) => response.data,
+      transformResponse: (response: any) => response.data,
     }),
     addClient: build.mutation({
       query: (postData) => ({

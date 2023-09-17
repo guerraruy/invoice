@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb'
+import { MongoClient, Collection } from 'mongodb'
 import { ObjectId } from 'mongodb'
 
 export const getDbConnectionString = () => {
@@ -10,17 +10,21 @@ export const dbConnect = async () => {
   return client
 }
 
-export const findById = async (collection, id) => {
+export const findById = async (collection: Collection, id: string) => {
   const data = await collection.findOne({ _id: new ObjectId(id) })
   return data
 }
 
-export const deleteById = async (collection, id) => {
+export const deleteById = async (collection: Collection, id: string) => {
   const data = await collection.deleteOne({ _id: new ObjectId(id) })
   return data
 }
 
-export const updateById = async (collection, id, body) => {
+export const updateById = async (
+  collection: Collection,
+  id: string,
+  body: Object
+) => {
   const data = await collection.replaceOne(
     { _id: new ObjectId(id) },
     { ...body }

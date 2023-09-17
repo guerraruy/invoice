@@ -4,7 +4,7 @@ export interface invoiceItems {
 }
 
 export interface Client {
-  _id?: string
+  _id: string
   name: string
 }
 

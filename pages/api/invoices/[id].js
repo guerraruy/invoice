@@ -22,7 +22,6 @@ const handler = async (req, res) => {
   }
 
   if (req.method === 'DELETE') {
-    console.log('=========== DELETE ================', id)
     const client = await dbConnect()
     const db = client.db()
 

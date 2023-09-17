@@ -9,9 +9,7 @@ export const invoicesApi = baseService.injectEndpoints({
           method: 'GET',
         }
       },
-      transformResponse: (response) => {
-        return response.data
-      },
+      transformResponse: (response: any) => response.data,
       providesTags: ['Invoices'],
     }),
     getInvoice: build.query({
@@ -24,7 +22,7 @@ export const invoicesApi = baseService.injectEndpoints({
       providesTags: (result, error, arg, meta) => {
         return [{ type: 'Invoices', id: arg }]
       },
-      transformResponse: (response) => response.data,
+      transformResponse: (response: any) => response.data,
     }),
     addInvoice: build.mutation({
       query: (postData) => ({
@@ -43,7 +41,6 @@ export const invoicesApi = baseService.injectEndpoints({
     }),
     updateInvoice: build.mutation({
       query: (postData) => {
-        console.log('####', postData)
         return {
           url: `/invoices/${postData._id}`,
           method: 'PUT',

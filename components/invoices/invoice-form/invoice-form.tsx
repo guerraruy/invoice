@@ -15,26 +15,33 @@ import {
 } from '@/services/invoices'
 import Checkbox from '@/components/ui/checkbox'
 import Spinner from '@/components/ui/spinner'
+import { Client } from '@/interfaces'
+import { RootState } from '@/redux/store'
 
 import styles from './invoice-form.module.scss'
 
-// interface Props {
-//   id?: string
-//   onGetInvoice?: (invoiceNo: number) => void
-// }
+interface Props {
+  id?: string
+  onGetInvoice?: (invoiceNo: number) => void
+}
 
-const InvoiceForm = ({ id, onGetInvoice }) => {
+interface Options {
+  value: string
+  text: string
+}
+
+const InvoiceForm: React.FC<Props> = ({ id, onGetInvoice }): JSX.Element => {
   const { data: clients, isLoading: isLoadingClients } = useGetClientsQuery() // populates client dropdown
   const { data: invoice, isLoading: isLoadingInvoices } = useGetInvoiceQuery(
     id,
     { skip: !id }
   )
   const [updateInvoice] = useUpdateInvoiceMutation()
-  const [options, setOptions] = useState([])
+  const [options, setOptions] = useState<Options[]>([])
   const [clientId, setClientId] = useState('')
   const [dueDate, setDueDate] = useState('')
   const [paid, setPaid] = useState(false)
-  const { items } = useSelector((state) => state.invoiceItems)
+  const { items } = useSelector((state: RootState) => state.invoiceItems)
   const router = useRouter()
   const [addInvoice] = useAddInvoiceMutation()
   const dispatch = useDispatch()
@@ -45,7 +52,7 @@ const InvoiceForm = ({ id, onGetInvoice }) => {
 
   useEffect(() => {
     if (clients) {
-      setOptions(clients.map((e) => ({ value: e._id, text: e.name })))
+      setOptions(clients.map((e: Client) => ({ value: e._id, text: e.name })))
     }
   }, [clients])
 
@@ -59,11 +66,11 @@ const InvoiceForm = ({ id, onGetInvoice }) => {
     }
   }, [invoice, dispatch, onGetInvoice])
 
-  const handleClientChange = (id) => {
+  const handleClientChange = (id: string) => {
     setClientId(id)
   }
 
-  const handleDueDateChange = (value) => {
+  const handleDueDateChange = (value: string) => {
     setDueDate(value)
   }
 
@@ -75,7 +82,7 @@ const InvoiceForm = ({ id, onGetInvoice }) => {
     router.push('/invoices')
   }
 
-  const handleSave = async (e) => {
+  const handleSave = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
     const data = {
       dueDate,
@@ -84,14 +91,6 @@ const InvoiceForm = ({ id, onGetInvoice }) => {
       items,
       invoiceNumber: invoice.invoiceNumber,
     }
-    // console.log('NEW INVOICE', invoice)
-    // const result = await addInvoice(invoice)
-    // console.log('result', result)
-    // router.push('/invoices')
-
-    // const data = {
-    //   name,
-    // }
 
     if (id) {
       const result = await updateInvoice({ data, _id: id })
@@ -111,7 +110,6 @@ const InvoiceForm = ({ id, onGetInvoice }) => {
     <div className={styles.invoiceForm}>
       <form>
         <div className={styles.topContainer}>
-          {/* <label>{`Invoice # ${invoice?.invoiceNumber}`}</label> */}
           <div className={styles.control}>
             <label>Client</label>
             <Select
@@ -125,7 +123,6 @@ const InvoiceForm = ({ id, onGetInvoice }) => {
             <InputDate onChange={handleDueDateChange} value={dueDate} />
           </div>
 
-          {/* <div className={styles.spacer} /> */}
           <div className={styles.rightBlock}>
             <Checkbox checked={paid} onChange={handlePaidChange} label='Paid' />
           </div>

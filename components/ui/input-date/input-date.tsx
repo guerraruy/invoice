@@ -1,7 +1,7 @@
 import styles from './input-date.module.scss'
 
 interface Props {
-  label: string
+  label?: string
   value: string
   onChange: (e: string) => void
 }

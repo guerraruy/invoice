@@ -15,8 +15,10 @@ function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     <Provider store={store}>
       <SessionProvider session={session}>
         <Layout>
-          <Component {...pageProps} />
-          <CustomToaster />
+          <>
+            <Component {...pageProps} />
+            <CustomToaster />
+          </>
         </Layout>
       </SessionProvider>
     </Provider>
