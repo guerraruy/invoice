@@ -1,3 +1,5 @@
+@import '@/styles/media-queries.module.scss';
+
 .invoicesList {
   border: 1px solid lightgray;
   padding: 20px;
@@ -11,14 +13,15 @@
   .header {
     display: flex;
     gap: 10px;
-    padding-left: 10px;
+    // padding-left: 10px;
     .headerInvoiceNo {
       border: 1px solid lightgray;
-      width: 140px;
+      width: 138px;
       padding: 10px;
       border-radius: 5px;
       display: flex;
       justify-content: center;
+      text-align: center;
     }
     .headerDueDate {
       border: 1px solid lightgray;
@@ -46,7 +49,7 @@
     }
     .headerStatus {
       border: 1px solid lightgray;
-      width: 200px;
+      width: 180px;
       padding: 10px;
       border-radius: 5px;
       display: flex;
@@ -54,7 +57,7 @@
     }
     .headerActions {
       border: 1px solid lightgray;
-      width: 140px;
+      width: 160px;
       padding: 10px;
       border-radius: 5px;
       display: flex;
@@ -69,5 +72,12 @@
     gap: 10px;
     display: flex;
     flex-direction: column;
+  }
+  @include respond-below(md) {
+    padding-left: 2px;
+    padding-right: 2px;
+    .header {
+      display: none;
+    }
   }
 }

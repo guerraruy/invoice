@@ -38,11 +38,26 @@ const InvoiceRow: React.FC<Props> = ({
 
   return (
     <div className={`${styles.invoiceRow} ${statusClass}`}>
-      <div className={styles.invoiceNo}>{`# ${invoice.invoiceNumber}`}</div>
-      <div className={styles.invoiceDueDate}>{due}</div>
-      <div className={styles.invoiceClient}>{client}</div>
-      <div className={styles.invoiceAmount}>{amount}</div>
-      <div className={styles.invoiceStatus}>{status}</div>
+      <div className={styles.invoiceNo}>
+        <div className={styles.label}>Invoice:</div>
+        {` # ${invoice.invoiceNumber}`}
+      </div>
+      <div className={styles.invoiceDueDate}>
+        <div className={styles.label}>Due:</div>
+        {due}
+      </div>
+      <div className={styles.invoiceClient}>
+        <div className={styles.label}>Client:</div>
+        {client}
+      </div>
+      <div className={styles.invoiceAmount}>
+        <div className={styles.label}>Amount:</div>
+        {amount}
+      </div>
+      <div className={styles.invoiceStatus}>
+        <div className={styles.label}>Status:</div>
+        {status}
+      </div>
       <div className={styles.invoiceActions}>
         <ActionsButtons
           onEdit={onEdit}

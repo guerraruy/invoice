@@ -1,3 +1,5 @@
+@import '@/styles/media-queries.module.scss';
+
 .invoiceRow {
   cursor: pointer;
   border: 1px solid lightgray;
@@ -9,22 +11,25 @@
   .invoiceNo {
     display: flex;
     align-items: center;
-    width: 140px;
+    width: 125px;
     padding: 0 10px;
     // border: 1px solid gray;
+    text-align: center;
+    justify-content: center;
   }
   .invoiceDueDate {
     display: flex;
     align-items: center;
-    width: 140px;
+    width: 145px;
     padding: 0 10px;
     text-align: center;
     // border: 1px solid gray;
+    justify-content: center;
   }
   .invoiceClient {
     display: flex;
     align-items: center;
-    width: 350px;
+    width: 345px;
     padding: 0 10px;
     // border: 1px solid gray;
   }
@@ -33,13 +38,14 @@
     align-items: center;
     width: 250px;
     padding: 0 10px;
-    text-align: end;
+    justify-content: flex-end;
     // border: 1px solid gray;
   }
   .invoiceStatus {
     display: flex;
     align-items: center;
-    width: 200px;
+    justify-content: center;
+    width: 180px;
     padding: 0 10px;
     text-align: center;
     // border: 1px solid gray;
@@ -47,9 +53,10 @@
   .invoiceActions {
     display: flex;
     align-items: center;
-    width: 140px;
+    width: 130px;
     padding: 0 10px;
     text-align: center;
+    // border: 1px solid gray;
   }
   &.paid {
     border-left: 6px solid rgb(0, 182, 0);
@@ -62,5 +69,32 @@
   &.overdue {
     border-left: 6px solid orangered;
     border-right: 6px solid orangered;
+  }
+  .label {
+    display: none;
+  }
+
+  @include respond-below(md) {
+    flex-direction: column;
+    .label {
+      font-weight: bold;
+      display: flex;
+      justify-content: flex-end;
+      width: 100px;
+      padding-right: 10px;
+    }
+    .invoiceNo,
+    .invoiceDueDate,
+    .invoiceClient,
+    .invoiceAmount,
+    .invoiceStatus {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+    .invoiceActions {
+      width: 100%;
+    }
   }
 }
