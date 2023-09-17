@@ -1,5 +1,5 @@
-import { passwordHash } from '../../../helpers/auth'
-import { dbConnect } from '../../../helpers/database'
+import { passwordHash } from '@/helpers/auth'
+import { dbConnect } from '@/helpers/database'
 
 const handler = async (req, res) => {
   if (req.method !== 'POST') {

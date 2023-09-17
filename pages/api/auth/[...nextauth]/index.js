@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import { dbConnect } from '../../../../helpers/database'
-import { doesPasswordMatches } from '../../../../helpers/auth'
+import { dbConnect } from '@/helpers/database'
+import { doesPasswordMatches } from '@/helpers/auth'
 
 const config = {
   session: {

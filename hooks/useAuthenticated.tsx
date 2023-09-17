@@ -1,5 +1,5 @@
 import { useSession } from 'next-auth/react'
-import { isAuthenticate } from '../helpers/auth'
+import { notAuthenticate } from '../helpers/auth'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
@@ -8,7 +8,7 @@ const useAuthenticated = () => {
   const { status } = useSession()
   // Redirect if not authenticated
   useEffect(() => {
-    if (!isAuthenticate(status)) {
+    if (notAuthenticate(status)) {
       router.push('/auth')
     }
   }, [status, router])

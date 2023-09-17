@@ -15,6 +15,10 @@ export const isAuthenticate = (status: string) => {
   return status === 'authenticated'
 }
 
+export const notAuthenticate = (status: string) => {
+  return status === 'unauthenticated'
+}
+
 export const isLoading = (status: string) => {
   return status === 'loading'
 }
