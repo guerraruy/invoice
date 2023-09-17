@@ -1,3 +1,4 @@
+import { FC, SyntheticEvent } from 'react'
 import { FaPencil, FaRegTrashCan, FaRegFilePdf } from 'react-icons/fa6'
 
 import IconButton from '@/components/ui/icon-button'
@@ -5,23 +6,27 @@ import IconButton from '@/components/ui/icon-button'
 import styles from './actions-buttons.module.scss'
 
 interface Props {
-  onEdit: () => void
-  onDelete: () => void
-  onExport?: () => void
+  onEdit: (e: SyntheticEvent) => void
+  onDelete: (e: SyntheticEvent) => void
+  onExport?: (e: SyntheticEvent) => void
 }
 
-const ActionsButtons = ({ onEdit, onDelete, onExport }: Props) => {
-  const handleExport = (e) => {
+const ActionsButtons: FC<Props> = ({
+  onEdit,
+  onDelete,
+  onExport,
+}): JSX.Element => {
+  const handleExport = (e: SyntheticEvent) => {
     e.preventDefault()
-    onExport && onExport()
+    onExport && onExport(e)
   }
-  const handleEdit = (e) => {
+  const handleEdit = (e: SyntheticEvent) => {
     e.preventDefault()
-    onEdit && onEdit()
+    onEdit && onEdit(e)
   }
-  const handleDelete = (e) => {
+  const handleDelete = (e: SyntheticEvent) => {
     e.preventDefault()
-    onDelete && onDelete()
+    onDelete && onDelete(e)
   }
   return (
     <div className={styles.actionsButtons}>

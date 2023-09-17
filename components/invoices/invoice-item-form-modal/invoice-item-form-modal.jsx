@@ -9,6 +9,7 @@ import styles from './invoice-item-form-modal.module.scss'
 const InvoiceItemFormModal = ({ open, onClose, onSave, item }) => {
   const [description, setDescription] = useState('')
   const [amount, setAmount] = useState('')
+  console.log('XXX', item)
   useEffect(() => {
     if (item) {
       setDescription(item.description)

@@ -1,7 +1,12 @@
-import styles from './layout.module.scss'
 import Header from '../header'
 
-function Layout({ children }) {
+import styles from './layout.module.scss'
+
+interface Props {
+  children: JSX.Element
+}
+
+const Layout: React.FC<Props> = ({ children }): JSX.Element => {
   return (
     <div className={styles.layout}>
       <Header />

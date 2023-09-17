@@ -15,7 +15,7 @@ const ClientRow: React.FC<Props> = ({
   name,
   onEdit,
   onDelete,
-}): React.ReactElement => {
+}): JSX.Element => {
   return (
     <div className={styles.clientRow}>
       <div className={styles.name}>{name}</div>

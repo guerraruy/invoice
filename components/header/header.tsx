@@ -6,7 +6,7 @@ import Navigation from '@/components/navigation/navigation'
 
 import styles from './header.module.scss'
 
-const Header: React.FC = (): React.ReactElement => {
+const Header: React.FC = (): JSX.Element => {
   const [showNavigationMobile, toggleNavigationMobile] = useState(false)
 
   const toggle = () => {

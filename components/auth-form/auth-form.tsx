@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { FC, SyntheticEvent, useState } from 'react'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import toast from 'react-hot-toast'
@@ -10,28 +10,23 @@ import { isValidEmail } from '@/helpers/validators'
 
 import styles from './auth-form.module.scss'
 
-const AuthForm = () => {
+const AuthForm: FC = (): JSX.Element => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isLogin, toggleMode] = useState(false)
   const [signUp] = useAddUserMutation()
   const router = useRouter()
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   console.log('email', email)
-  //   console.log('password', password)
-  // }
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     if (isLogin) {
-      const { error } = await signIn('credentials', {
+      const result = await signIn('credentials', {
         email,
         password,
         redirect: false,
       })
+      const error = result?.error
       if (error) {
         toast.error(error)
       } else {
@@ -54,11 +49,11 @@ const AuthForm = () => {
     }
   }
 
-  const handleChangeEmail = (e) => {
+  const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value)
   }
 
-  const handleChangePassword = (e) => {
+  const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value)
   }
 

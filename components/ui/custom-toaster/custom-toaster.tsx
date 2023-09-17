@@ -1,6 +1,6 @@
 import { Toaster } from 'react-hot-toast'
 
-const CustomToaster = () => {
+const CustomToaster: React.FC = (): JSX.Element => {
   return (
     <Toaster
       toastOptions={{

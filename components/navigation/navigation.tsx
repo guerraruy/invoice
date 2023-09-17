@@ -5,7 +5,12 @@ import { isAuthenticate } from '@/helpers/auth'
 
 import styles from './navigation.module.scss'
 
-function Navigation({ show, toggle }) {
+interface Props {
+  show: boolean
+  toggle: () => void
+}
+
+const Navigation: React.FC<Props> = ({ show, toggle }): JSX.Element => {
   const { data: session, status } = useSession()
 
   const logoutHandler = () => {

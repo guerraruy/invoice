@@ -47,7 +47,10 @@ const handler = async (req, res) => {
     const data = []
 
     while ((doc = await cursor.next())) {
-      data.push(doc)
+      data.push({
+        ...doc,
+        client: doc.client[0],
+      })
     }
 
     res.status(200).json({ data })

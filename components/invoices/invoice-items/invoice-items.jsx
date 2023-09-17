@@ -60,6 +60,7 @@ const InvoiceItems = () => {
       }
       dispatch(addInvoiceItem(data))
     }
+    setItemToBeEdited(null)
     setOpenInvoiceItemFormModal(false)
   }
 

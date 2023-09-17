@@ -10,11 +10,11 @@ import {
 
 import styles from './client-form.module.scss'
 
-// interface Props {
-//   id?: string;
-// }
+interface Props {
+  id?: string
+}
 
-const ClientForm = ({ id }) => {
+const ClientForm: React.FC<Props> = ({ id }): JSX.Element => {
   const [name, setName] = useState('')
   const [addClient] = useAddClientMutation()
   const [updateClient] = useUpdateClientMutation()
@@ -26,7 +26,7 @@ const ClientForm = ({ id }) => {
   }, [data])
   const router = useRouter()
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const data = {
       name,

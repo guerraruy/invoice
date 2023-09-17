@@ -23,7 +23,6 @@ const InvoicesList = () => {
 
   const handleDelete = () => {
     deleteInvoice(idToBeDeleted)
-    console.log('delete', idToBeDeleted)
   }
 
   const handleConfirm = (id) => {

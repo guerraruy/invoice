@@ -1,11 +1,13 @@
+import { FC, SyntheticEvent } from 'react'
+
 import styles from './icon-button.module.scss'
 
 interface Props {
   children: JSX.Element
-  onClick: () => void
+  onClick: (e: SyntheticEvent) => void
 }
 
-const IconButton = ({ children, onClick, ...rest }: Props) => (
+const IconButton: FC<Props> = ({ children, onClick, ...rest }): JSX.Element => (
   <button className={styles.iconButton} onClick={onClick} {...rest}>
     {children}
   </button>
