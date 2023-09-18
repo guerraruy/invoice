@@ -52,7 +52,10 @@ const InvoiceRow: React.FC<Props> = ({
       </div>
       <div className={styles.invoiceAmount}>
         <div className={styles.label}>Amount:</div>
-        {`$ ${(+amount).toFixed(2)}`}
+        {`$ ${(+amount).toLocaleString('en-US', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}`}
       </div>
       <div className={styles.invoiceStatus}>
         <div className={styles.label}>Status:</div>
