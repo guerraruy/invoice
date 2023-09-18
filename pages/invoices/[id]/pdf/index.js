@@ -31,8 +31,6 @@ const InvoicePdfPage = () => {
     }
   }, [invoice])
 
-  console.log('DATA', invoice)
-
   const { toPDF, targetRef } = usePDF({
     filename: 'invoice.pdf',
     page: { margin: Margin.MEDIUM },

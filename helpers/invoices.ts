@@ -1,6 +1,7 @@
 import { Invoice } from '@/interfaces'
 
 export const getStatusFromInvoice = (invoice: Invoice) => {
+  // console.log('getStatusFromInvoice', invoice)
   const dueDate = new Date(invoice.dueDate)
   let status
   if (invoice.paid) {

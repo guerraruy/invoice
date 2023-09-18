@@ -53,6 +53,7 @@ const InvoiceForm: React.FC<Props> = ({ id, onGetInvoice }): JSX.Element => {
   useEffect(() => {
     if (clients) {
       setOptions(clients.map((e: Client) => ({ value: e._id, text: e.name })))
+      setClientId(clients[0]._id)
     }
   }, [clients])
 
@@ -89,7 +90,7 @@ const InvoiceForm: React.FC<Props> = ({ id, onGetInvoice }): JSX.Element => {
       clientId,
       paid,
       items,
-      invoiceNumber: invoice.invoiceNumber,
+      invoiceNumber: invoice?.invoiceNumber,
     }
 
     if (id) {
@@ -105,6 +106,8 @@ const InvoiceForm: React.FC<Props> = ({ id, onGetInvoice }): JSX.Element => {
   if (isLoadingClients || isLoadingInvoices) {
     return <Spinner />
   }
+
+  const submitDisabled = !clientId || !items?.length || !dueDate
 
   return (
     <div className={styles.invoiceForm}>
@@ -132,7 +135,9 @@ const InvoiceForm: React.FC<Props> = ({ id, onGetInvoice }): JSX.Element => {
           <Button type='button' onClick={handleCancel} outlined>
             Cancel
           </Button>
-          <Button onClick={handleSave}>{buttonText}</Button>
+          <Button disabled={submitDisabled} onClick={handleSave}>
+            {buttonText}
+          </Button>
         </div>
       </form>
     </div>

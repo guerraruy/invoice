@@ -7,6 +7,8 @@ const handler = async (req, res) => {
     const client = await dbConnect()
     const db = client.db()
 
+    console.log('####', req.body)
+
     await db.collection('invoices').insertOne({
       ...req.body,
       clientId: new ObjectId(req.body.clientId),
