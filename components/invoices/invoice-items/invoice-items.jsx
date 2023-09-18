@@ -32,13 +32,11 @@ const InvoiceItems = () => {
   }
 
   const handleEditItem = (item) => {
-    // e.preventDefault()
     setItemToBeEdited(item)
     setOpenInvoiceItemFormModal(true)
   }
 
   const handleDeleteItem = () => {
-    // console.log('delete item ', item)
     dispatch(removeInvoiceItem(idToBeDeleted))
   }
 

@@ -7,13 +7,11 @@
   gap: 10px;
   display: flex;
   flex-direction: column;
-  // border: 6px solid blue;
   flex: 1;
   height: 0;
   .header {
     display: flex;
     gap: 10px;
-    // padding-left: 10px;
     .headerInvoiceNo {
       border: 1px solid lightgray;
       width: 138px;
@@ -65,7 +63,6 @@
     }
   }
   .listContainer {
-    // border: 6px solid rgb(3, 233, 11);
     overflow-y: auto;
     flex: 1;
     height: 0;

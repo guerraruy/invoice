@@ -34,8 +34,6 @@ export const usersApi = baseService.injectEndpoints({
       transformResponse: (response) => {
         return response
       },
-      // providesTags: (result) => [{ type: 'Workbox', id: 'UpdateWorkbox' }],
-      // invalidatesTags: (result, error, { id }) => [{ type: 'Workbox', id: 'GetWorkboxes' }]
     }),
     deleteUser: build.mutation({
       query: (id) => ({
@@ -43,9 +41,6 @@ export const usersApi = baseService.injectEndpoints({
         method: 'DELETE',
       }),
       invalidatesTags: ['User'],
-      // transformResponse: (response) => response.Result,
-      // providesTags: (result) => [{ type: 'Workbox', id: 'UpdateWorkbox' }],
-      // invalidatesTags: (result, error, { id }) => [{ type: 'Workbox', id: 'GetWorkboxes' }]
     }),
     updateUser: build.mutation({
       query: (postData, x) => ({
@@ -56,9 +51,6 @@ export const usersApi = baseService.injectEndpoints({
       invalidatesTags: (result, error, arg, meta) => {
         return [{ type: 'User', id: arg._id }]
       },
-      // transformResponse: (response) => response.Result,
-      // providesTags: (result) => [{ type: 'Workbox', id: 'UpdateWorkbox' }],
-      // invalidatesTags: (result, error, { id }) => [{ type: 'Workbox', id: 'GetWorkboxes' }]
     }),
   }),
 })

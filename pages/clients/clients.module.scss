@@ -1,6 +1,5 @@
 .clients {
   position: relative;
-  // border: 6px solid green;
   max-width: 600px;
   margin: 0 auto;
   display: flex;
@@ -14,7 +13,6 @@
     gap: 10px;
     display: flex;
     flex-direction: column;
-    // border: 8px solid magenta;
     flex: 1;
     height: 0;
     overflow-y: auto;

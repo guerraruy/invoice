@@ -1,12 +1,10 @@
 .layout {
   display: flex;
   flex-direction: column;
-  // border: 5px solid green;
   height: 100vh;
   overflow: hidden;
 
   main {
-    // border: 5px solid black;
     flex: 1;
     height: 0;
   }

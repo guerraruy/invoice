@@ -26,8 +26,6 @@ const handler = async (req, res) => {
     const client = await dbConnect()
     const db = client.db()
 
-    // const cursor = db.collection('invoices').find()
-
     const cursor = db.collection('invoices').aggregate([
       {
         $lookup: {

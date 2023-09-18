@@ -5,10 +5,6 @@ export const baseService = createApi({
   tagTypes: ['User', 'Clients', 'Invoices'],
   baseQuery: fetchBaseQuery({
     baseUrl: '/api/',
-    // fetchFn: async (...args) => {
-    //   console.log('=======> args', args)
-    //   return fetch(...args)
-    // },
   }),
   endpoints: () => ({}),
   refetchOnReconnect: false,

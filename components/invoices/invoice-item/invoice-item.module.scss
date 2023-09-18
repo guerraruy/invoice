@@ -1,9 +1,7 @@
 .invoiceItem {
   display: flex;
-  // padding: 0.5rem;
   gap: 1rem;
   .description {
-    // background-color: aqua;
     display: flex;
     align-items: center;
     padding: 0 0.5rem;
@@ -19,15 +17,10 @@
     border: 1px solid rgb(239, 239, 239);
     border-radius: var(--border-radius);
     width: 220px;
-    // background-color: rgb(76, 192, 192);
   }
   .actions {
     padding: 0 0.5rem;
-    // border: 1px solid rgb(239, 239, 239);
     border-radius: var(--border-radius);
     width: 90px;
   }
-  // .description {
-  //   flex: 1;
-  // }
 }

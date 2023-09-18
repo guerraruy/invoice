@@ -23,9 +23,7 @@ const handler = async (req, res) => {
   const db = client.db()
 
   // Check if email already exists in the database
-  // console.log('email', { email })
   const existingUser = await db.collection('users').findOne({ email })
-  // console.log('existingUser', existingUser)
   if (existingUser) {
     // sends unprocessable entity status
     res

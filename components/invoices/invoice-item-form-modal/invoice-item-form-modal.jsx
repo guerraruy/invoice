@@ -11,7 +11,6 @@ const InvoiceItemFormModal = ({ open, onClose, onSave, item }) => {
   const [amount, setAmount] = useState('')
   useEffect(() => {
     if (open) {
-      // console.log('ITEM', item)
       if (item) {
         setDescription(item.description)
         setAmount(item.amount)

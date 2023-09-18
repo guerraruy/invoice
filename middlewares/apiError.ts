@@ -1,7 +1,6 @@
 import { isRejectedWithValue } from '@reduxjs/toolkit'
 import type { MiddlewareAPI, Middleware } from '@reduxjs/toolkit'
 import toast from 'react-hot-toast'
-// import { toast } from 'your-cool-library'
 
 /**
  * Log a warning and show a toast!

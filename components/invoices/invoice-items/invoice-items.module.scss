@@ -1,8 +1,6 @@
-// @import '../../styles//media-queries.module.scss';
-
 .invoiceItems {
   padding: 20px 0;
-  // border: 2px solid red;
+
   .itemsTitleContainer {
     display: flex;
     align-items: center;
@@ -13,25 +11,11 @@
     }
   }
   .listContainer {
-    // border: 1px solid magenta;
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
   }
-  // .buttonsContainer {
-  //   margin-top: 20px;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   gap: 20px;
-  //   button {
-  //     flex: 1;
-  //   }
-  //   @include respond-above(md) {
-  //     max-width: 500px;
-  //     margin-left: auto;
-  //   }
-  // }
+
   .header {
     display: flex;
     flex-direction: row;
