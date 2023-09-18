@@ -1,6 +1,9 @@
 @import '@/styles/media-queries.module.scss';
 
 .invoicePdfPage {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   .buttonContainer {
     display: flex;
     justify-content: space-between;
@@ -19,6 +22,94 @@
     }
   }
   .pdf {
-    border: 3px solid green;
+    overflow-y: auto;
+    font-size: 24px;
+    h1 {
+      border: 1px solid lightgray;
+      background-color: rgb(235, 235, 235);
+      padding: 20px;
+      text-align: center;
+    }
+    .invoiceData {
+      padding: 20px;
+      .invoiceDataRow {
+        // border: 1px solid green;
+        width: 100%;
+        padding: 10px 20px;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        .label {
+          width: 170px;
+          border: 1px solid lightgray;
+          border-radius: 5px;
+          padding: 10px;
+          text-align: right;
+        }
+        .value {
+          padding: 10px;
+          // border: 1px solid lightgray;
+          border-radius: 5px;
+          flex: 1;
+        }
+      }
+      .invoiceItemsHeader {
+        padding: 20px;
+        display: flex;
+        gap: 20px;
+        font-weight: 600;
+        .invoiceDescriptionHeader {
+          background-color: rgb(247, 247, 247);
+          border: 1px solid lightgray;
+          border-radius: 5px;
+          flex: 1;
+          padding: 20px;
+        }
+        .invoiceAmountHeader {
+          background-color: rgb(247, 247, 247);
+          text-align: right;
+          width: 300px;
+          border: 1px solid lightgray;
+          border-radius: 5px;
+          padding: 20px;
+        }
+      }
+      .invoiceItems {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        .invoiceItemRow {
+          display: flex;
+          padding: 10px;
+          border: 1px solid lightgray;
+          border-radius: 5px;
+          .invoiceItemDescription {
+            flex: 1;
+          }
+          .invoiceItemDescription {
+            width: 300px;
+          }
+        }
+      }
+    }
+    .invoiceTotal {
+      margin: 10px;
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px;
+      align-items: center;
+      .totalBox {
+        margin-left: 20px;
+        border-radius: 5px;
+        border: 2px solid lightgray;
+        padding: 10px;
+        width: 300px;
+        text-align: right;
+        font-weight: 600;
+        background-color: rgb(247, 247, 247);
+      }
+    }
   }
 }
