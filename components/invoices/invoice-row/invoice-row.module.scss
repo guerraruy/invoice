@@ -4,7 +4,7 @@
   cursor: pointer;
   border: 1px solid lightgray;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -50,7 +50,7 @@
     .statusText {
       text-transform: uppercase;
       border: 1px solid;
-      border-radius: 5px;
+      border-radius: var(--border-radius);
       font-weight: bold;
       padding: 4px;
       &.paid {

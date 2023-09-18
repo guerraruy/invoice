@@ -11,7 +11,7 @@
   input {
     font-family: 'Montserrat';
     padding: 12px;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     border: 2px solid var(--ctrl-border-color);
     font-size: var(--ctrl-font-size);
     font-weight: var(--ctrl-font-weigth);

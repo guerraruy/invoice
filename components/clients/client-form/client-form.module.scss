@@ -13,7 +13,7 @@
     flex-direction: column;
     input {
       padding: 10px;
-      border-radius: 5px;
+      border-radius: var(--border-radius);
       border-color: lightgray;
       border-style: solid;
       font-size: 18px;

@@ -1,6 +1,6 @@
 .iconButton {
   padding: 4px;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   border: 1px solid lightgray;
   font-size: 18px;
   background-color: #fff;

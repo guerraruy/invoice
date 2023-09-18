@@ -1,9 +1,6 @@
 .react-responsive-modal-root {
-  // .react-responsive-modal-modal {
-  //   background-color: var(--gray-0);
-  // }
   .react-responsive-modal-modal {
-    border-radius: 5px;
+    border-radius: var(--border-radius);
   }
   .react-responsive-modal-closeButton {
     font-size: 24px;

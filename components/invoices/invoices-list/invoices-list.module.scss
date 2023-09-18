@@ -3,7 +3,7 @@
 .invoicesList {
   border: 1px solid lightgray;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   gap: 10px;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@
       border: 1px solid lightgray;
       width: 138px;
       padding: 10px;
-      border-radius: 5px;
+      border-radius: var(--border-radius);
       display: flex;
       justify-content: center;
       text-align: center;
@@ -27,7 +27,7 @@
       border: 1px solid lightgray;
       width: 140px;
       padding: 10px;
-      border-radius: 5px;
+      border-radius: var(--border-radius);
       display: flex;
       justify-content: center;
     }
@@ -35,7 +35,7 @@
       border: 1px solid lightgray;
       width: 350px;
       padding: 10px;
-      border-radius: 5px;
+      border-radius: var(--border-radius);
       display: flex;
       justify-content: center;
     }
@@ -43,7 +43,7 @@
       border: 1px solid lightgray;
       width: 250px;
       padding: 10px;
-      border-radius: 5px;
+      border-radius: var(--border-radius);
       display: flex;
       justify-content: center;
     }
@@ -51,7 +51,7 @@
       border: 1px solid lightgray;
       width: 180px;
       padding: 10px;
-      border-radius: 5px;
+      border-radius: var(--border-radius);
       display: flex;
       justify-content: center;
     }
@@ -59,7 +59,7 @@
       border: 1px solid lightgray;
       width: 160px;
       padding: 10px;
-      border-radius: 5px;
+      border-radius: var(--border-radius);
       display: flex;
       justify-content: center;
     }

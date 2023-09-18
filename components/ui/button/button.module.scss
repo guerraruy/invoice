@@ -6,7 +6,7 @@
   background-color: var(--primary);
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: var(--border-radius);
   text-transform: uppercase;
   &.round {
     display: flex;
