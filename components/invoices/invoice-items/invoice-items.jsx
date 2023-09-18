@@ -43,7 +43,6 @@ const InvoiceItems = () => {
   }
 
   const handleSaveItem = (item) => {
-    console.log('item.id', item)
     if (item.id) {
       // Update Item
       const data = {

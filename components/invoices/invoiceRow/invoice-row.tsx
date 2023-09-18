@@ -52,11 +52,11 @@ const InvoiceRow: React.FC<Props> = ({
       </div>
       <div className={styles.invoiceAmount}>
         <div className={styles.label}>Amount:</div>
-        {amount}
+        {`$ ${(+amount).toFixed(2)}`}
       </div>
       <div className={styles.invoiceStatus}>
         <div className={styles.label}>Status:</div>
-        {status}
+        <span className={`${styles.statusText} ${statusClass}`}>{status}</span>
       </div>
       <div className={styles.invoiceActions}>
         <ActionsButtons

@@ -31,7 +31,9 @@ export const usersApi = baseService.injectEndpoints({
         body: { ...postData },
       }),
       invalidatesTags: ['User'],
-      // transformResponse: (response) => response.Result,
+      transformResponse: (response) => {
+        return response
+      },
       // providesTags: (result) => [{ type: 'Workbox', id: 'UpdateWorkbox' }],
       // invalidatesTags: (result, error, { id }) => [{ type: 'Workbox', id: 'GetWorkboxes' }]
     }),

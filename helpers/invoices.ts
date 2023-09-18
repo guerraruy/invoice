@@ -17,6 +17,6 @@ export const getStatusFromInvoice = (invoice: Invoice) => {
 }
 
 export const getTotalAmountFromInvoice = (invoice: Invoice) => {
-  const total = invoice.items.reduce((acc, ele) => acc + ele.amount, 0)
+  const total = invoice.items.reduce((acc, ele) => acc + +ele.amount, 0)
   return total
 }

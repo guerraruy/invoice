@@ -4,12 +4,6 @@ import { dbConnect } from '../../../helpers/database'
 
 const handler = async (req, res) => {
   if (req.method === 'POST') {
-    // const { name } = req.body
-
-    // if (!valid(email) || !valid(password)) {
-    //   res.status(422).json({message: 'Invalid Input'})
-    // }
-
     const client = await dbConnect()
     const db = client.db()
 

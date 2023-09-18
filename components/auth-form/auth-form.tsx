@@ -1,4 +1,4 @@
-import { FC, SyntheticEvent, useState } from 'react'
+import { FC, useState } from 'react'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import toast from 'react-hot-toast'
@@ -45,7 +45,15 @@ const AuthForm: FC = (): JSX.Element => {
         email,
         password,
       }
-      const result = await signUp(data)
+      interface Res {
+        data: {
+          message: string
+        }
+      }
+      const result: any = await signUp(data)
+      if (result?.data?.message) {
+        toast.success(result.data.message)
+      }
     }
   }
 

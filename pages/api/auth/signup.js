@@ -1,5 +1,6 @@
 import { passwordHash } from '@/helpers/auth'
 import { dbConnect } from '@/helpers/database'
+import { isValidEmail } from '@/helpers/validators'
 
 const handler = async (req, res) => {
   if (req.method !== 'POST') {
@@ -7,9 +8,16 @@ const handler = async (req, res) => {
   }
   const { email, password } = req.body
 
-  // if (!valid(email) || !valid(password)) {
-  //   res.status(422).json({message: 'Invalid Input'})
-  // }
+  if (!isValidEmail(email)) {
+    res.status(422).json({ message: 'Invalid email' })
+    return
+  }
+  if (password?.length < 6) {
+    res
+      .status(422)
+      .json({ message: 'Password must have at least 6 characters' })
+    return
+  }
 
   const client = await dbConnect()
   const db = client.db()
