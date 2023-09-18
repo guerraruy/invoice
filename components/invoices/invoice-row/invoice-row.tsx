@@ -1,9 +1,6 @@
-import {
-  getStatusFromInvoice,
-  getTotalAmountFromInvoice,
-} from '@/helpers/invoices'
+import { getTotalAmountFromInvoice } from '@/helpers/invoices'
 import ActionsButtons from '@/components/actions-buttons'
-import { Invoice } from '../../../interfaces'
+import { Invoice } from '@/interfaces'
 
 import styles from './invoice-row.module.scss'
 
@@ -33,8 +30,7 @@ const InvoiceRow: React.FC<Props> = ({
   const due = dueDate.toLocaleDateString()
   const client = invoice.client?.name || ''
   const amount = getTotalAmountFromInvoice(invoice)
-  const status = getStatusFromInvoice(invoice)
-  const statusClass = styles[status]
+  const statusClass = styles[invoice.status]
 
   return (
     <div className={`${styles.invoiceRow} ${statusClass}`}>
@@ -59,7 +55,9 @@ const InvoiceRow: React.FC<Props> = ({
       </div>
       <div className={styles.invoiceStatus}>
         <div className={styles.label}>Status:</div>
-        <span className={`${styles.statusText} ${statusClass}`}>{status}</span>
+        <span className={`${styles.statusText} ${statusClass}`}>
+          {invoice.status}
+        </span>
       </div>
       <div className={styles.invoiceActions}>
         <ActionsButtons

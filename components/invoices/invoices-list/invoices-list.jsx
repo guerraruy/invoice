@@ -5,9 +5,10 @@ import {
   useDeleteInvoiceMutation,
   useGetAllInvoicesQuery,
 } from '@/services/invoices'
-import InvoiceRow from '@/components/invoices/invoiceRow'
+import InvoiceRow from '@/components/invoices/invoice-row'
 import Spinner from '@/components/ui/spinner'
 import ConfirmationModal from '@/components/ui/confirmation-modal'
+import InvoicesFilter from '@/components/invoices/invoices-filter'
 
 import styles from './invoices-list.module.scss'
 
@@ -16,6 +17,11 @@ const InvoicesList = () => {
   const [deleteInvoice] = useDeleteInvoiceMutation()
   const router = useRouter()
   const [idToBeDeleted, setIdToBeDeleted] = useState(null)
+  const [statusFilter, setStatusFilter] = useState('')
+
+  const handleStatusChange = (e) => {
+    setStatusFilter(e)
+  }
 
   const handleEdit = (id) => {
     router.push(`/invoices/${id}`)
@@ -31,6 +37,7 @@ const InvoicesList = () => {
 
   const handleExport = (id) => {
     console.log('export', id)
+    router.push(`/invoices/${id}/pdf`)
   }
 
   if (isLoading) {
@@ -39,6 +46,7 @@ const InvoicesList = () => {
 
   return (
     <>
+      <InvoicesFilter value={statusFilter} onChange={handleStatusChange} />
       <div className={styles.invoicesList}>
         <div className={styles.header}>
           <div className={styles.headerInvoiceNo}>No.</div>
@@ -49,17 +57,19 @@ const InvoicesList = () => {
           <div className={styles.headerActions}>Actions</div>
         </div>
         <div className={styles.listContainer}>
-          {invoices.map((invoice) => {
-            return (
-              <InvoiceRow
-                key={invoice._id}
-                invoice={invoice}
-                onEdit={() => handleEdit(invoice._id)}
-                onDelete={() => handleConfirm(invoice._id)}
-                onExport={() => handleExport(invoice._id)}
-              />
-            )
-          })}
+          {invoices
+            .filter((e) => statusFilter === '' || e.status === statusFilter)
+            .map((invoice) => {
+              return (
+                <InvoiceRow
+                  key={invoice._id}
+                  invoice={invoice}
+                  onEdit={() => handleEdit(invoice._id)}
+                  onDelete={() => handleConfirm(invoice._id)}
+                  onExport={() => handleExport(invoice._id)}
+                />
+              )
+            })}
         </div>
       </div>
       <ConfirmationModal

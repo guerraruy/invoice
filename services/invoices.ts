@@ -1,4 +1,5 @@
 import { baseService } from './baseService'
+import { getStatusFromInvoice } from '@/helpers/invoices'
 
 export const invoicesApi = baseService.injectEndpoints({
   endpoints: (build) => ({
@@ -9,7 +10,11 @@ export const invoicesApi = baseService.injectEndpoints({
           method: 'GET',
         }
       },
-      transformResponse: (response: any) => response.data,
+      transformResponse: (response: any) => {
+        return response.data.map((invoice: any) => {
+          return { ...invoice, status: getStatusFromInvoice(invoice) }
+        })
+      },
       providesTags: ['Invoices'],
     }),
     getInvoice: build.query({

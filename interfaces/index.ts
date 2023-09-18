@@ -16,4 +16,5 @@ export interface Invoice {
   clientId: string
   client?: Client
   invoiceNumber?: number
+  status: string
 }
