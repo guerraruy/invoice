@@ -2,14 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   env: {
-    db: {
-      // Please fill this variables with your Moingodb account
-      username: '',
-      password: '',
-      cluster: '',
-      database: '',
-      // ---------------------------------------------------------------------
-    },
+    // Please fill this variables with your Moingodb account
+    dbUsername: '',
+    dbPassword: '',
+    dbCluster: '',
+    dbDatabase: '',
+    dbServer: '',
+    nextAuthSecret: '',
   },
 }
 
