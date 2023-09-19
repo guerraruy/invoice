@@ -2,7 +2,7 @@
 
 .invoiceRow {
   cursor: pointer;
-  border: 1px solid lightgray;
+  border: 1px solid var(--border-color);
   padding: 10px;
   border-radius: var(--border-radius);
   display: flex;

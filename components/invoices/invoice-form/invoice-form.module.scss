@@ -1,7 +1,7 @@
 @import '@/styles/media-queries.module.scss';
 
 .invoiceForm {
-  border: 1px solid lightgray;
+  border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   padding: 20px;
   form {

@@ -1,7 +1,7 @@
 @import '@/styles/media-queries.module.scss';
 
 .invoicesList {
-  border: 1px solid lightgray;
+  border: 1px solid var(--border-color);
   padding: 20px;
   border-radius: var(--border-radius);
   gap: 10px;
@@ -12,8 +12,10 @@
   .header {
     display: flex;
     gap: 10px;
+    font-weight: 500;
     .headerInvoiceNo {
-      border: 1px solid lightgray;
+      border: 1px solid var(--border-color);
+      background-color: var(--background-color);
       width: 138px;
       padding: 10px;
       border-radius: var(--border-radius);
@@ -22,7 +24,8 @@
       text-align: center;
     }
     .headerDueDate {
-      border: 1px solid lightgray;
+      background-color: var(--background-color);
+      border: 1px solid var(--border-color);
       width: 140px;
       padding: 10px;
       border-radius: var(--border-radius);
@@ -30,7 +33,8 @@
       justify-content: center;
     }
     .headerClient {
-      border: 1px solid lightgray;
+      background-color: var(--background-color);
+      border: 1px solid var(--border-color);
       width: 350px;
       padding: 10px;
       border-radius: var(--border-radius);
@@ -38,7 +42,8 @@
       justify-content: center;
     }
     .headerAmount {
-      border: 1px solid lightgray;
+      background-color: var(--background-color);
+      border: 1px solid var(--border-color);
       width: 250px;
       padding: 10px;
       border-radius: var(--border-radius);
@@ -46,7 +51,8 @@
       justify-content: center;
     }
     .headerStatus {
-      border: 1px solid lightgray;
+      background-color: var(--background-color);
+      border: 1px solid var(--border-color);
       width: 180px;
       padding: 10px;
       border-radius: var(--border-radius);
@@ -54,7 +60,8 @@
       justify-content: center;
     }
     .headerActions {
-      border: 1px solid lightgray;
+      background-color: var(--background-color);
+      border: 1px solid var(--border-color);
       width: 160px;
       padding: 10px;
       border-radius: var(--border-radius);

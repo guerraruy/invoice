@@ -9,7 +9,7 @@
     top: 5px;
     border: 1px solid transparent;
     &:hover {
-      border-color: lightgray;
+      border-color: var(--border-color);
       background-color: rgb(250, 250, 250);
     }
   }

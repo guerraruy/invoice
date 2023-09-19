@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid var(--border-color);
     margin-left: auto;
     gap: 20px;
     width: 40vw;
@@ -25,7 +25,7 @@
     overflow-y: auto;
     font-size: 24px;
     h1 {
-      border: 1px solid lightgray;
+      border: 1px solid var(--border-color);
       background-color: rgb(235, 235, 235);
       padding: 20px;
       text-align: center;
@@ -42,14 +42,13 @@
         gap: 10px;
         .label {
           width: 170px;
-          border: 1px solid lightgray;
+          border: 1px solid var(--border-color);
           border-radius: var(--border-radius);
           padding: 10px;
           text-align: right;
         }
         .value {
           padding: 10px;
-          // border: 1px solid lightgray;
           border-radius: var(--border-radius);
           flex: 1;
         }
@@ -61,7 +60,7 @@
         font-weight: 600;
         .invoiceDescriptionHeader {
           background-color: rgb(247, 247, 247);
-          border: 1px solid lightgray;
+          border: 1px solid var(--border-color);
           border-radius: var(--border-radius);
           flex: 1;
           padding: 20px;
@@ -70,7 +69,7 @@
           background-color: rgb(247, 247, 247);
           text-align: right;
           width: 300px;
-          border: 1px solid lightgray;
+          border: 1px solid var(--border-color);
           border-radius: var(--border-radius);
           padding: 20px;
         }
@@ -83,7 +82,7 @@
         .invoiceItemRow {
           display: flex;
           padding: 10px;
-          border: 1px solid lightgray;
+          border: 1px solid var(--border-color);
           border-radius: var(--border-radius);
           .invoiceItemDescription {
             flex: 1;
@@ -103,7 +102,7 @@
       .totalBox {
         margin-left: 20px;
         border-radius: var(--border-radius);
-        border: 2px solid lightgray;
+        border: 2px solid var(--border-color);
         padding: 10px;
         width: 300px;
         text-align: right;
