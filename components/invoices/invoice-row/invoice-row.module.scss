@@ -46,21 +46,18 @@
     text-align: center;
     .statusText {
       text-transform: uppercase;
-      border: 1px solid;
+      border: 2px solid;
       border-radius: var(--border-radius);
       font-weight: bold;
       padding: 4px;
       &.paid {
-        color: rgb(0, 182, 0);
-        border-color: rgb(0, 182, 0);
+        border-color: var(--color-paid);
       }
       &.unpaid {
-        color: rgb(255, 170, 0);
-        border-color: rgb(255, 170, 0);
+        border-color: var(--color-unpaid);
       }
       &.overdue {
-        color: orangered;
-        border-color: orangered;
+        border-color: var(--color-overdue);
       }
     }
   }
@@ -72,16 +69,16 @@
     text-align: center;
   }
   &.paid {
-    border-left: 6px solid rgb(0, 182, 0);
-    border-right: 6px solid rgb(0, 182, 0);
+    border-left: 6px solid var(--color-paid);
+    border-right: 6px solid var(--color-paid);
   }
   &.unpaid {
-    border-left: 6px solid rgb(255, 170, 0);
-    border-right: 6px solid rgb(255, 170, 0);
+    border-left: 6px solid var(--color-unpaid);
+    border-right: 6px solid var(--color-unpaid);
   }
   &.overdue {
-    border-left: 6px solid orangered;
-    border-right: 6px solid orangered;
+    border-left: 6px solid var(--color-overdue);
+    border-right: 6px solid var(--color-overdue);
   }
   .label {
     display: none;

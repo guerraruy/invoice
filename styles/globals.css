@@ -8,6 +8,9 @@
   --ctrl-border-color: #ededed;
   --ctrl-font-size: 20px;
   --ctrl-font-weigth: 400;
+  --color-paid: #00ba00;
+  --color-unpaid: #ff8400;
+  --color-overdue: #d40000;
 }
 
 * {
