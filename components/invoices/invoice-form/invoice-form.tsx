@@ -13,7 +13,7 @@ import {
   useGetInvoiceQuery,
   useUpdateInvoiceMutation,
 } from '@/services/invoices'
-import Checkbox from '@/components/ui/checkbox'
+import Checkbox from '@/components/ui/checkbox-input'
 import Spinner from '@/components/ui/spinner'
 import { Client } from '@/interfaces'
 import { RootState } from '@/redux/store'

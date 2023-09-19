@@ -1,4 +1,4 @@
-import styles from './checkbox.module.scss'
+import styles from './checkbox-input.module.scss'
 
 interface Props {
   label: string
@@ -6,17 +6,17 @@ interface Props {
   onChange: () => void
 }
 
-const Checkbox: React.FC<Props> = ({
+const CheckboxInput: React.FC<Props> = ({
   label,
   checked,
   onChange,
 }): JSX.Element => {
   return (
-    <div className={styles.checkbox}>
+    <div className={styles.checkboxInput}>
       <input type='checkbox' checked={checked} onChange={onChange} />
       <label>{label}</label>
     </div>
   )
 }
 
-export default Checkbox
+export default CheckboxInput
