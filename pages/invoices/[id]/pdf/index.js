@@ -40,6 +40,11 @@ const InvoicePdfPage = () => {
     router.push('/invoices')
   }
 
+  const handlePdf = () => {
+    toPDF()
+    router.push('/invoices')
+  }
+
   if (!invoice || isLoadingInvoices || isLoadingClient) {
     return <Spinner />
   }
@@ -53,7 +58,7 @@ const InvoicePdfPage = () => {
     <section className={styles.invoicePdfPage}>
       <div className={styles.buttonContainer}>
         <Button onClick={handleCancel}>CANCEL</Button>
-        <Button onClick={toPDF}>Download PDF</Button>
+        <Button onClick={handlePdf}>Download PDF</Button>
       </div>
 
       <div className={styles.pdf} ref={targetRef}>

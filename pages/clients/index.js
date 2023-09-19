@@ -8,6 +8,7 @@ import ClientRow from '@/components/clients/client-row'
 import ConfirmationModal from '@/components/ui/confirmation-modal'
 import Button from '@/components/ui/button'
 import useAuthenticated from '@/hooks/useAuthenticated'
+import Spinner from '@/components/ui/spinner'
 
 import styles from './clients.module.scss'
 
@@ -31,7 +32,7 @@ const Clients = () => {
   }
 
   if (isLoading) {
-    return <div>LOADING...</div>
+    return <Spinner />
   }
 
   const handleEdit = (id) => {

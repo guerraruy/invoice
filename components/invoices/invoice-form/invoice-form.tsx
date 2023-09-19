@@ -53,7 +53,9 @@ const InvoiceForm: React.FC<Props> = ({ id, onGetInvoice }): JSX.Element => {
   useEffect(() => {
     if (clients) {
       setOptions(clients.map((e: Client) => ({ value: e._id, text: e.name })))
-      setClientId(clients[0]._id)
+      if (clients?.length > 0) {
+        setClientId(clients[0]._id)
+      }
     }
   }, [clients])
 

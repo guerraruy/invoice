@@ -15,6 +15,7 @@ const Input: React.FC<Props> = ({
   value,
   onChange,
   autoFocus,
+  type,
 }): JSX.Element => {
   return (
     <div className={styles.input}>
@@ -25,6 +26,7 @@ const Input: React.FC<Props> = ({
         value={value}
         onChange={onChange}
         autoFocus={autoFocus}
+        type={type}
       />
     </div>
   )
