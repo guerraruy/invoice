@@ -2,7 +2,7 @@ import { MongoClient, Collection } from 'mongodb'
 import { ObjectId } from 'mongodb'
 
 export const getDbConnectionString = () => {
-  return `mongodb+srv://${process.env.dbUsername}:${process.env.dbPassword}@${process.env.dbCluster}.qvebhze.mongodb.net/${process.env.dbDatabase}?retryWrites=true&w=majority`
+  return `mongodb+srv://${process.env.dbUsername}:${process.env.dbPassword}@${process.env.dbCluster}.${process.env.dbServer}.mongodb.net/${process.env.dbDatabase}?retryWrites=true&w=majority`
 }
 
 export const dbConnect = async () => {

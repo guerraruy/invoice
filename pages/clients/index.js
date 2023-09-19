@@ -38,6 +38,17 @@ const Clients = () => {
     router.push(`/clients/${id}`)
   }
 
+  const displayClientsList = () => {
+    return data.map(({ name, _id }) => (
+      <ClientRow
+        key={_id}
+        name={name}
+        onEdit={() => handleEdit(_id)}
+        onDelete={() => handleConfirm(_id)}
+      />
+    ))
+  }
+
   return (
     <>
       <section className={styles.clients}>
@@ -46,14 +57,13 @@ const Clients = () => {
         </Button>
         <PageHeader>Clients</PageHeader>
         <div className={styles.clientsListContainer}>
-          {data.map(({ name, _id }) => (
-            <ClientRow
-              key={_id}
-              name={name}
-              onEdit={() => handleEdit(_id)}
-              onDelete={() => handleConfirm(_id)}
-            />
-          ))}
+          {data?.length > 0 ? (
+            displayClientsList()
+          ) : (
+            <div className={styles.noClient}>
+              <em>No client has been created yet</em>
+            </div>
+          )}
         </div>
       </section>
       <ConfirmationModal

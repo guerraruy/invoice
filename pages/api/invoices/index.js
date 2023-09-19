@@ -1,22 +1,36 @@
 import { ObjectId } from 'mongodb'
 
-import { dbConnect } from '../../../helpers/database'
+import { dbConnect, updateById } from '@/helpers/database'
 
 const handler = async (req, res) => {
   if (req.method === 'POST') {
     const client = await dbConnect()
     const db = client.db()
 
-    console.log('####', req.body)
+    // Get and update Invoice Sequence number
+    let invoiceNumber = 1
+    const cursor = db.collection('counters').find()
+    const doc = await cursor.next()
+    if (doc) {
+      const { _id, seq_value } = doc
+      invoiceNumber = seq_value + 1
+      await updateById(db.collection('counters'), _id, {
+        seq_value: invoiceNumber,
+      })
+    } else {
+      // Initialize Invoice sequence in  database
+      await db.collection('counters').insertOne({
+        seq_value: 1,
+      })
+    }
 
     await db.collection('invoices').insertOne({
       ...req.body,
       clientId: new ObjectId(req.body.clientId),
+      invoiceNumber,
     })
 
-    // This 500ms delay is to alow mongodb autoincrement trigger to update
-    // invoiceNumber in the database
-    setTimeout(() => res.status(201).json({ message: 'Invoice Created' }), 500)
+    res.status(201).json({ message: 'Invoice Created' })
 
     client.close()
     return
