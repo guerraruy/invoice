@@ -1,11 +1,6 @@
 import { ObjectId } from 'mongodb'
 
-import {
-  dbConnect,
-  deleteById,
-  findById,
-  updateById,
-} from '../../../helpers/database'
+import { dbConnect, deleteById, findById, updateById } from '@/helpers/database'
 
 const handler = async (req, res) => {
   const { id } = req.query

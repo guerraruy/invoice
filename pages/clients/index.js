@@ -69,7 +69,8 @@ const Clients = () => {
       </section>
       <ConfirmationModal
         open={idToBeDeleted}
-        body='Are you sure you only want to delete this client?'
+        body={`Are you sure you only want to delete this client?
+        All associated Invoices will also be deleted!`}
         onClose={() => setIdToBeDeleted(null)}
         confirmCallback={handleDelete}
       />

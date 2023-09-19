@@ -36,7 +36,6 @@ const InvoicesList = () => {
   }
 
   const handleExport = (id) => {
-    console.log('export', id)
     router.push(`/invoices/${id}/pdf`)
   }
 

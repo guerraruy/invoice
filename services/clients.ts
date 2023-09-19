@@ -38,7 +38,7 @@ export const clientsApi = baseService.injectEndpoints({
         url: `/clients/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: ['Clients'],
+      invalidatesTags: ['Clients', 'Invoices'],
     }),
     updateClient: build.mutation({
       query: (postData) => {

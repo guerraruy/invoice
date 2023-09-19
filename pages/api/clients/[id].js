@@ -1,9 +1,6 @@
-import {
-  dbConnect,
-  deleteById,
-  findById,
-  updateById,
-} from '../../../helpers/database'
+import { ObjectId } from 'mongodb'
+
+import { dbConnect, deleteById, findById, updateById } from '@/helpers/database'
 
 const handler = async (req, res) => {
   const { id } = req.query
@@ -24,6 +21,9 @@ const handler = async (req, res) => {
     const db = client.db()
 
     const data = await deleteById(db.collection('clients'), id)
+
+    // Delete also all invoices associated with this client
+    await db.collection('invoices').deleteMany({ clientId: new ObjectId(id) })
 
     res.status(200).json({ data })
     client.close()

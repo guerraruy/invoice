@@ -1,4 +1,4 @@
-import { dbConnect } from '../../../helpers/database'
+import { dbConnect } from '@/helpers/database'
 
 const handler = async (req, res) => {
   if (req.method === 'POST') {

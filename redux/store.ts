@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import invoiceItemsReducer from './invoiceItemsSlice'
-import { baseService } from '../services/baseService'
+import { baseService } from '@/services/baseService'
 import { rtkQueryErrorLogger } from '@/middlewares/apiError'
 
 const rootReducer = {
